@@ -1,0 +1,41 @@
+linex -rb -> Kernal .dtb zimage
+
+a5d2x-rb - common.dtsi --> modify 
+
+cd linux/arch/arm/boot/dts
+
+vi a5d2x-rb-common.dtsi --> File
+
+Modification of the UART -5 
+             flex com -3 
+             status = "Okay"
+             
+             flex-3 
+               PA = 23
+               PC = 13 --> 
+               
+               Save 
+               
+   cd ../../../../
+   
+   linux$ tool chain
+   	$make distclean
+   	$make rb-defconfig
+   	$make dtbs
+   	$make -j4 
+   	
+   	
+   	copy zimage to dtb
+   	
+   	rub-boot 
+   	cd /sys/class/tty
+   	ls
+   	tty5
+   	
+   	
+   	NOR = tftp 
+   	SD = SD 
+   	
+   	Z-image cd /arch/arm/boot
+   	.dtb cd /arch/arm/boot/dts
+               
