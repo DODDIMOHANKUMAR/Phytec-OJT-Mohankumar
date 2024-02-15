@@ -1,20 +1,24 @@
-#include <stdio.h>
-int main()
+#include<stdio.h>
+void main()
 {
-  int c = 0, count = 0;
-  char s[1000];
-  printf("Input a string\n");
-  gets(s);
-  while (s[c] != '\0') {
-    if (s[c] == 'a' || s[c] == 'e' ||  s[c] == 'i'  || s[c] == 'o' || s[c] == 'u' )
-      count++;
-    c++;
-  }
-  printf("Number of vowels in the string: %d", count);
-  return 0;
+	char str[100], c=0,c1=0;
+	//int i,j;
+	printf("enter string\n");
+	scanf("%s",str);
+
+	for(int i=0;str[i]!='\0';i++)
+	{
+		if((str[i]=='a')||(str[i]=='e')||(str[i]=='i')||(str[i]=='o')||(str[i]=='u'))
+		{
+			c++;
+		}
+		else
+		{
+			c1++;
+	}
+	}
+	printf("vowels is %d\n constraints is %d\n",c,c1);
+	
 }
-
-
-
 
 

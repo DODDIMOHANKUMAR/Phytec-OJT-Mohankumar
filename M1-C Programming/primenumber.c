@@ -2,24 +2,23 @@
 
 int main()
 {
-	int num,i,j,count = 0;
-	printf("Enter the Prime number:");
-	scanf("%d\n",&num);
-	for(int i =2;i<num;i++)
+	int num1,num2,i,j,count = 0;
+	printf("Enter the 1st Prime number:");
+	scanf("%d\n",&num1);
+	printf("Enter the 2nd Prime number:");
+	scanf("%d\n",&num2);
+	for(int i =2;i<num1;i++)
 	{
 		int count= 0;
 	}
-	for(int j =1;j<i;j++)
+	for(int i =2;i<num2;i++)
 	{
-		if(i%j == 0)
+		if(num1%num2 == 0)
 		{
-		       printf("This number is not a Prime number%d\n",num);
+                    printf("this is Prime number Range %d\n",num1);
 		//	count ++;
 		}
 
 	}
-	if(count == 0)
-	{
-		printf("This number is a Prime number%d",num);
-	}
+
 }
