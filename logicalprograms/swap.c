@@ -1,14 +1,11 @@
 #include<stdio.h>
-
-int main()
+void main()
 {
-	int a =10,b =20;
-	printf("Before Swap the two number's a=%d and b= %d\n",a,b);
-	
-	a =a +b;
-	b =a -b;
-	a =a-b;
-
-	printf("/n After Swap the numbers a=%d and b=%d",a,b);
-	return 0;
+	int x,y;
+	printf("enter num1 and num2\n");
+	scanf("%d %d",&x,&y);
+	x=x+y;
+	y=x-y;
+	x=x-y;
+	printf("x= %d,y=%d\n",x,y);
 }
