@@ -1,0 +1,132 @@
+                              phyBOARD-Wega-AM335x
+                              ---------------------- 
+                              
+                              	
+    
+ 
+ Image Generation for SD Card Flashing:-
+ ----------------------------------------
+  
+  
+  The Below Steps follwes they How to Generate Images For To Flashing they SD Card.
+  
+   
+  step 1 :- Click on the Phytec.de then  Select the Products opation
+  
+  step 2 :- Click on  Single Board Computer  After choose the PhyBoARD-Wega 
+  
+  step 3 :-  Click on The Downloads  Then it Shows the  Manuals & Documents ,Software And Design Files .  In that Choose Software.
+  
+  
+  step 4 :- In the Software Choose Yocto -Linux Mainline-Kernel. Here The Devloper Choose the Version Based on the Wega -Board. for my Project I choose PD19.1.0 
+  
+  step 5 :- After Choosing the Version Click the Arrow Mark Which is on the Relese Notes. Then We Get link like Below 
+   https://download.phytec.de/Software/Linux/BSP-Yocto-AM335x/BSP-Yocto-AM335x-PD19.1.0/ReleaseNotes
+  
+   for the Above link Remove ReleaseNotes 
+  
+  https://download.phytec.de/Software/Linux/BSP-Yocto-AM335x/BSP-Yocto-AM335x-PD19.1.0/
+  
+  step 6 :- In the list Select Images After chooseing Based on the Requirement of the Board Select the Required Images.
+  
+  step 7 :-  hear I am Considering The Below Image.
+  
+  	phytec-qt5demo-image-phyboard-wega-am335x-1.sdcard
+  
+  step 8 :- Download the BOOT And Rootfs Images.
+  
+  
+  In SD Card e Make Two Partitions 
+  
+  1. Boot 
+  2.Rootfs 
+  
+  
+  --> Unmount all partitions with:-
+  
+  host$ umount /dev/<your_device><number>
+  
+ -->  After having unmounted all devices with an appended number (<your_device><number>), you can create your bootable SD card with:-
+ 
+ host$ sudo dd if=<IMAGENAME>-<MACHINE>.sdcard of=/dev/<your_device> bs=1MB conv=fsync
+ 
+ SD Card Partition  Completed.
+ 
+ 
+ Booting Methods :-
+ -----------------
+ 
+  1) SD Flashing.
+  2) NAND Flashing .
+ 
+ 
+ 
+  1) SD Card Flashing :-
+  -------------------
+Step 1: Insert the sd card in board.
+
+Step 2: Boot switch is ON
+
+Step 3:Give the power supply to that board.
+
+Step 4: Stop the barebox level and follow the below commands Taken Exit Command.
+
+step 5 :- Click on the Source Commands.
+
+step 6 :-  In The List choose MMC.
+
+step 7 :- SD Flash is Process is Done
+
+        $ mount / dev /disk0.0 /mnt
+        
+           or 
+
+	$mount /dev/mmcblk0p1 /mnt/
+
+        $ cd /mnt
+	$ sh flash.sh
+	$ reset
+
+
+2) NAND Flashing :- 
+--------------------
+Step 1: Stop the barebox level
+
+	$boot NAND
+step 2 : Remove the SD Card
+
+step 3 : Boot switch OFF 
+
+step 4 : stop the barebox level 
+
+	$edit/env/bin/init
+
+$ -z “${global.boot.default}” ] && global.boot.default= net change to nand
+
+$ Ctrl D
+
+$ Saveenv
+
+$ Reset
+
+Step 5: Booting from Nand
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+    
+    
+    
+      
+
