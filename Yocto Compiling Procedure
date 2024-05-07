@@ -1,0 +1,203 @@
+phytec@phytec:~$ sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file locales
+------------------------------------------------------------[For installing Packages]---------------------------------------------------------------------------------
+phytec@phytec:~$ mkdir ~/yocto
+phytec@phytec:~$ cd ~/yocto
+phytec@phytec:~/yocto$ wget https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
+phytec@phytec:~/yocto$ chmod +x phyLinux
+phytec@phytec:~/yocto$ ./phyLinux init
+/usr/bin/env: ‘python’: No such file or directory
+--------------------------------------[If above error Occurs]---------------------
+phytec@phytec:~/yocto$ sudo apt-get install python
+phytec@phytec:~/yocto$ ln -s `which python2` python && export PATH=`pwd`:$PATH
+phytec@phytec:~/yocto$ chmod +x phyLinux
+phytec@phytec:~/yocto$ ./phyLinux init
+-----------------------------------------------------------------------------------
+*   1: am335x
+*   2: am335x-public
+*   3: am62ax
+*   4: am62x
+*   5: am64x
+*   6: am68x
+*   7: imx6
+*   8: imx6ul
+*   9: imx7
+*   10: imx8
+*   11: imx8m
+*   12: imx8mm
+*   13: imx8mp
+*   14: imx8x
+*   15: nightly
+*   16: rk3288
+*   17: stm32mp1
+*   18: topic
+*
+
+$ 1 --> Enter [Choose According Your Machine]
+------------------------------------------------------------------------------------
+***************************************************
+* Please choose one of the available Releases:
+*
+*   1: BSP-Yocto-Ampliphy-AM335x-PD23.1-rc1
+*   2: BSP-Yocto-Ampliphy-AM335x-PD23.1.0
+*   3: PD14.1-rc1
+*   4: PD15.1-rc1
+*   5: PD15.1-rc2
+*   6: PD15.1.0
+*   7: PD15.1.1
+*   8: PD15.1.2
+*   9: PD15.2-rc1
+*   10: PD15.2.0
+*   11: PD15.2.1
+*   12: PD15.2.2
+*   13: PD15.3-rc1
+*   14: PD15.3.0
+*   15: PD15.3.1
+*   16: PD15.3.2
+*   17: PD16.1-rc1
+*   18: PD16.1.0
+*   19: PD16.2.0
+*   20: PD17.1.0
+*   21: PD17.1.1
+*   22: PD17.1.2
+*   23: PD17.1.3-rc1
+*   24: PD17.1.3
+*   25: PD17.2-rc2
+*   26: PD17.2.0
+*   27: PD17.2.1
+*   28: PD17.2.2
+*   29: PD19.1-rc1
+*   30: PD19.1.0
+*   31: PD19.1.1-rc1
+*   32: PD19.1.1-rc2
+*   33: PD19.1.1
+*
+$ 33 ----> Enter
+----------------------------------------------------------------------------------
+* Please choose one of the available builds:
+*
+no:          machine: description and article number
+                      distro: supported yocto distribution
+                      target: supported build target
+
+ 1: phyboard-regor-am335x-1: PHYTEC phyBOARD-REGOR AM335x 512MiB RAM
+                      512MiB NAND, 8MiB SPI flash
+                      PB-01802-001.A5
+                      distro: yogurt-rt
+                      target: phytec-headless-image
+ 2: phyboard-wega-am335x-1: PHYTEC phyBOARD-WEGA AM335x 256MiB RAM
+                      128MiB NAND flash, PEB-AV-01
+                      PB-00802-0101C.A1, PB-00802-0200C.A2
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 3: phyboard-wega-am335x-2: PHYTEC phyBOARD-WEGA AM335x 256MiB RAM
+                      128MiB NAND flash, PEB-AV-02
+                      PB-00802-008.A1, PB-00802-010.A0
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 4: phyboard-wega-am335x-3: PHYTEC phyBOARD-WEGA AM335x 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PEB-AV-01
+                      PB-00802-310I.A2
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 5: phyboard-wega-r2-am335x-1: PHYTEC phyBOARD-WEGA R2 AM335x 256MiB RAM
+                      256MiB NAND flash, PEB-AV-01
+                      PB-00814-001.A0, PB-00814-002.A0
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 6: phycore-am335x-1: PHYTEC phyCORE-AM335x 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PCM-953 (Kit)
+                      KPCM-051-SYS-LINUX, PCM-051-12102F0C.A3
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+ 7: phycore-am335x-3: PHYTEC phyCORE-AM335x 256MiB RAM
+                      256MiB/512MiB NAND flash, PCM-953
+                      PCM-051-01041E0I.A2
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+ 8: phycore-am335x-4: PHYTEC phyCORE-AM335x 256MiB RAM
+                      128MiB NAND flash, PCM-953
+                      PCM-051-0005160C.A2, PCM-051-0005160I.A2
+                      distro: yogurt
+                      target: phytec-headless-image
+ 9: phycore-am335x-5: PHYTEC phyCORE-AM335x 256MiB RAM
+                      128MiB NAND flash, PCM-953
+                      PCM-051-00051F0I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+10: phycore-am335x-7: PHYTEC phyCORE-AM335x 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PCM-953 (WiFi jumpered)
+                      PCM-051-12102F0C.A3
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+11: phycore-emmc-am335x-1: PHYTEC phyCORE-AM335x EMMC 1024MiB RAM
+                      4GiB EMMC flash, 8MiB SPI
+                      PCM-062-40143F10I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+12: phycore-r2-am335x-1: PHYTEC phyCORE-AM335x R2 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI, PCM-953 (Kit), PM
+                      PCM-060-12102F04I.A0, KPCM-060-SYS-LIN.A0
+                      distro: yogurt
+                      target: -c populate_sdk phytec-qt5demo-image
+                      target: phytec-qt5demo-image
+13: phycore-r2-am335x-2: PHYTEC phyCORE-AM335x R2 256MiB RAM
+                      256MiB NAND flash
+                      PCM-060-01051E10I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+14: phycore-r2-am335x-3: PHYTEC phyCORE-AM335x R2 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PCM-953
+                      PCM-060-12142F10I.A1
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+15: phycore-r2-am335x-4: PHYTEC phyCORE-AM335x R2 512MiB RAM
+                      512MiB NAND flash, PCM-953
+                      PCM-060-12052F10I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+16: phycore-r2-am335x-5: PHYTEC phyCORE-AM335x R2 1GiB RAM
+                      1GiB NAND flash, 8MiB SPI flash, PCM-953
+                      PCM-060-43102F10I.A1
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+17: phycore-r2-am335x-6: PHYTEC phyCORE-AM335x R2 1GiB RAM
+                      1GiB NAND flash, PCM-953
+                      PCM-060-43002F10I.A0
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+$ 14 -----> Enter
+-------------------------------------------------------------------------------
+To set up your shell environment for some Yocto work, you have to type this
+command, including the 'dot':
+
+    $ . sources/poky/oe-init-build-env
+
+
+phytec@phytec:~/yocto$ . sources/poky/oe-init-build-env
+--------------------------------------------------------------------------------
+
+██████╗ ██╗  ██╗██╗   ██╗████████╗███████╗ ██████╗
+██╔══██╗██║  ██║╚██╗ ██╔╝╚══██╔══╝██╔════╝██╔════╝
+██████╔╝███████║ ╚████╔╝    ██║   █████╗  ██║     
+██╔═══╝ ██╔══██║  ╚██╔╝     ██║   ██╔══╝  ██║     
+██║     ██║  ██║   ██║      ██║   ███████╗╚██████╗
+╚═╝     ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝
+
+
+Welcome to the PHYTEC BSP-Yocto buildsystem.
+
+Before building for the first time, you should take a look in the main
+configuration file 'conf/local.conf'. There you can tweak the build system
+settings and license configuration. For example you may have to accept the
+Freescale/NXP GPU and VPU licence for an i.MX6 board.
+
+Tested build target for this build configuration is:
+
+   $ bitbake phytec-qt5demo-image
+
+phytec@phytec:~/yocto/build$ bitbake phytec-qt5demo-image
