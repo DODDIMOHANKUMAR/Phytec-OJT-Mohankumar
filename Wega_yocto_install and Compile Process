@@ -1,0 +1,2084 @@
+mohan@mohan:~$ mkdir mihan
+mohan@mohan:~$ cd mihan/
+mohan@mohan:~/mihan$ ls
+mohan@mohan:~/mihan$ cd ..
+mohan@mohan:~/.local/share/Trash/files$ cd ../
+mohan@mohan:~/.local/share/Trash$ cd
+mohan@mohan:~$ mkdir wega_yocto
+mohan@mohan:~$ cd wega_yocto/
+mohan@mohan:~/wega_yocto$ wget https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux 
+--2024-03-11 12:08:28--  https://download.phytec.de/Software/Linux/Yocto/Tools/phyLinux
+Resolving download.phytec.de (download.phytec.de)... 78.31.71.219
+Connecting to download.phytec.de (download.phytec.de)|78.31.71.219|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 24762 (24K)
+Saving to: 'phyLinux'
+
+phyLinux                  100%[==================================>]  24.18K  81.4KB/s    in 0.3s    
+
+2024-03-11 12:08:32 (81.4 KB/s) - 'phyLinux' saved [24762/24762]
+
+mohan@mohan:~/wega_yocto$ chmod +x phyLinux 
+mohan@mohan:~/wega_yocto$ ./phyLinux init
+/usr/bin/env: 'python': No such file or directory
+mohan@mohan:~/wega_yocto$ sudo apt install python
+[sudo] password for mohan: 
+E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem. 
+mohan@mohan:~/wega_yocto$ ./phyLinux init
+repo tool wrapper is not installed
+installing repo tool wrapper...
+installing in /usr/local/bin
+('$', 'wget https://storage.googleapis.com/git-repo-downloads/repo')
+--2024-03-11 12:14:31--  https://storage.googleapis.com/git-repo-downloads/repo
+Resolving storage.googleapis.com (storage.googleapis.com)... 172.217.31.219, 216.58.196.187, 142.250.71.27, ...
+Connecting to storage.googleapis.com (storage.googleapis.com)|172.217.31.219|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 46939 (46K) [application/octet-stream]
+Saving to: 'repo'
+
+repo                      100%[==================================>]  45.84K   106KB/s    in 0.4s    
+
+2024-03-11 12:14:32 (106 KB/s) - 'repo' saved [46939/46939]
+
+
+('$', 'chmod a+x repo')
+
+('$', 'sudo mv repo /usr/local/bin/repo')
+
+no repo repository in current directory
+installing repo tool
+using repo-1 branch of upstream repo-tool
+if you want to use newer branches, you need to use pyhton >= 3.6
+no repository initialized
+Initializing from an empty directory
+updating remote phytec repo repository
+('$', 'repo init --repo-url=https://git.phytec.de/git/git-repo --repo-branch=repo-1 -u git://git.phytec.de/phy2octo')
+Downloading Repo source from https://git.phytec.de/git/git-repo
+remote: Objekte aufzählen: 8142, fertig.
+remote: Zähle Objekte: 100% (8142/8142), fertig.
+remote: Komprimiere Objekte: 100% (3377/3377), fertig.
+remote: Gesamt 8142 (Delta 5509), Wiederverwendet 7253 (Delta 4684)
+Receiving objects: 100% (8142/8142), 3.41 MiB | 720.00 KiB/s, done.
+Resolving deltas: 100% (5509/5509), done.
+repo: Updating release signing keys to keyset ver 2.3
+Get git://git.phytec.de/phy2octo
+remote: Enumerating objects: 7114, done.        
+remote: Counting objects: 100% (7114/7114), done.        
+remote: Compressing objects: 100% (5970/5970), done.        
+remote: Total 7114 (delta 4901), reused 1670 (delta 1116)        
+Receiving objects: 100% (7114/7114), 1.33 MiB | 171.00 KiB/s, done.
+Resolving deltas: 100% (4901/4901), done.
+From git://git.phytec.de/phy2octo
+ * [new branch]      am335x     -> origin/am335x
+ * [new branch]      am57x      -> origin/am57x
+ * [new branch]      am62ax     -> origin/am62ax
+ * [new branch]      am62x      -> origin/am62x
+ * [new branch]      am64x      -> origin/am64x
+ * [new branch]      am68x      -> origin/am68x
+ * [new branch]      imx6       -> origin/imx6
+ * [new branch]      imx6ul     -> origin/imx6ul
+ * [new branch]      imx7       -> origin/imx7
+ * [new branch]      imx8       -> origin/imx8
+ * [new branch]      imx8m      -> origin/imx8m
+ * [new branch]      imx8mm     -> origin/imx8mm
+ * [new branch]      imx8mp     -> origin/imx8mp
+ * [new branch]      imx8x      -> origin/imx8x
+ * [new branch]      imx93      -> origin/imx93
+ * [new branch]      master     -> origin/master
+ * [new branch]      nightly    -> origin/nightly
+ * [new branch]      rk3288     -> origin/rk3288
+ * [new branch]      stm32mp13x -> origin/stm32mp13x
+ * [new branch]      stm32mp15x -> origin/stm32mp15x
+ * [new branch]      topic      -> origin/topic
+
+Your identity is: MohanKumardoddi <mohankumardoddi96@gmail.com>
+If you want to change this, please re-run 'repo init' with --config-name
+
+Testing colorized output (for 'repo diff', 'repo status'):
+  black    red      green    yellow   blue     magenta   cyan     white 
+  bold     dim      ul       reverse 
+Enable color display in this user account (y/N)? y
+
+repo has been initialized in /home/mohan/wega_yocto
+
+No SoC Platform selected
+***************************************************
+* Please choose one of the available SoC Platforms:
+*
+*   1: am335x
+*   2: am57x
+*   3: am62ax
+*   4: am62x
+*   5: am64x
+*   6: am68x
+*   7: imx6
+*   8: imx6ul
+*   9: imx7
+*   10: imx8
+*   11: imx8m
+*   12: imx8mm
+*   13: imx8mp
+*   14: imx8x
+*   15: imx93
+*   16: nightly
+*   17: rk3288
+*   18: stm32mp13x
+*   19: stm32mp15x
+*   20: topic
+*
+$ 1
+switching to am335x
+('$', 'repo init -b am335x')
+.repo/manifests/: discarding 143 commits
+
+Your identity is: MohanKumardoddi <mohankumardoddi96@gmail.com>
+If you want to change this, please re-run 'repo init' with --config-name
+
+repo has been initialized in /home/mohan/wega_yocto
+
+***************************************************
+* Please choose one of the available Releases:
+*
+*   1: BSP-Yocto-Ampliphy-AM335x-PD23.1-rc1
+*   2: BSP-Yocto-Ampliphy-AM335x-PD23.1.0
+*   3: PD14.1-rc1
+*   4: PD15.1-rc1
+*   5: PD15.1-rc2
+*   6: PD15.1.0
+*   7: PD15.1.1
+*   8: PD15.1.2
+*   9: PD15.2-rc1
+*   10: PD15.2.0
+*   11: PD15.2.1
+*   12: PD15.2.2
+*   13: PD15.3-rc1
+*   14: PD15.3.0
+*   15: PD15.3.1
+*   16: PD15.3.2
+*   17: PD16.1-rc1
+*   18: PD16.1.0
+*   19: PD16.2.0
+*   20: PD17.1.0
+*   21: PD17.1.1
+*   22: PD17.1.2
+*   23: PD17.1.3-rc1
+*   24: PD17.1.3
+*   25: PD17.2-rc2
+*   26: PD17.2.0
+*   27: PD17.2.1
+*   28: PD17.2.2
+*   29: PD19.1-rc1
+*   30: PD19.1.0
+*   31: PD19.1.1-rc1
+*   32: PD19.1.1-rc2
+*   33: PD19.1.1
+*
+$ 33
+switching to PD19.1.1
+('$', 'repo init -m PD19.1.1.xml')
+
+Your identity is: MohanKumardoddi <mohankumardoddi96@gmail.com>
+If you want to change this, please re-run 'repo init' with --config-name
+
+repo has been initialized in /home/mohan/wega_yocto
+
+syncing sources
+('$', 'repo sync')
+  % Total    % R  % Total    % Recei v e%d  T%o tXafle r d    %A vReercaegiev eSdp e%e dX f e rTdi m eA v eeracge Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  Time     Time  Current
+                  ei ved % Xferd  A              Dloveragaed  S pUepeldo a d  T i mTeo t a l  T i mSepent    Left  Speed
+  0     0    0     0    0          0T i m e     C0u r  ren t
+     0    -   - :-- : -  -     - -  : -  - :  - -    - - :Dl-o-ad : U-p-loa d   Total      Spe n0t    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (22) The requested URL returned error: 404 
+Server does not provide clone.bundle; ignoring.
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (22) The requested URL returned error: 404 
+Server does not provide clone.bundle; ignoring.
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (22) The requested URL returned error: 404 
+Server does not provide clone.bundle; ignoring.
+remote: Enumerating objects: 3178, done.        
+remote: Enumerating objects: 9694, done.          
+remote: Counting objects: 100% (3178/3178), done.        
+remote: Counting objects: 100% (9694/9694), done.        
+remote: Compressing objects: 100% (2450/2450), done.        
+remote: Compressing objects: 100% (5982/5982), done.        
+remote: Enumerating objects: 5483, done.        
+remote: Counting objects: 100% (1083/1083), done.        
+remote: Compressing objects: 100% (384/384), done.        
+remote: Enumerating objects: 1905, done.        
+remote: Counting objects: 100% (602/602), done.        
+remote: Compressing objects: 100% (296/296), done.        
+remote: Enumerating objects: 16514, done.        
+remote: Counting objects: 100% (16514/16514), done.        
+remote: Compressing objects: 100% (4164/4164), done.        
+remote: Enumerating objects: 235413, done.        .00 KiB/sB/ss
+remote: Counting objects: 100% (177/177), done.        0 KiB/ss
+remote: Compressing objects: 100% (141/141), done.        
+remote: Total 5483 (delta 614), reused 896 (delta 537), pack-reused 4400        
+Receiving objects: 100% (5483/5483), 1.08 MiB | 771.00 KiB/s, done.
+Resolving deltas: 100% (3345/3345), done.00 KiB | 159.00 KiB/s
+remote: Total 1905 (delta 356), reused 337 (delta 292), pack-reused 1303        
+Receiving objects: 100% (1905/1905), 295.55 KiB | 202.00 KiB/s, done.
+Resolving deltas: 100% (989/989), done.
+From https://github.com/dv1/meta-gstreamer1.0KiB | 628.00 KiB/s
+ * [new branch]      danny               -> github/danny
+ * [new branch]      dora                -> github/dora
+ * [new branch]      dunfell             -> github/dunfell
+ * [new branch]      dylan               -> github/dylan
+ * [new branch]      fido                -> github/fido
+ * [new branch]      gatesgarth          -> github/gatesgarth
+ * [new branch]      jethro              -> github/jethro
+ * [new branch]      krogoth             -> github/krogoth
+ * [new branch]      master              -> github/master
+ * [new branch]      morty               -> github/morty
+ * [new branch]      pyro                -> github/pyro
+ * [new branch]      rocko               -> github/rocko
+ * [new branch]      sumo                -> github/sumo
+ * [new branch]      thud                -> github/thud
+ * [new branch]      transition-to-meson -> github/transition-to-meson
+ * [new branch]      warrior             -> github/warrior
+ * [new branch]      zeus                -> github/zeus
+ * [new tag]         1.10.3              -> 1.10.3
+ * [new tag]         1.10.4              -> 1.10.4
+ * [new tag]         1.4.0               -> 1.4.0
+ * [new tag]         1.4.5               -> 1.4.5
+From https://github.com/rauc/meta-rauc
+ * [new branch]      dunfell    -> github/dunfell
+ * [new tag]         1.6.0               -> 1.6.0
+ * [new tag]         1.8.1               -> 1.8.1
+ * [new branch]      gatesgarth -> github/gatesgarth
+ * [new tag]         1.8.3               -> 1.8.3
+ * [new branch]      hardknott  -> github/hardknott00 KiB/s
+ * [new branch]      honister   -> github/honister
+ * [new branch]      kirkstone  -> github/kirkstone
+ * [new branch]      krogoth    -> github/krogoth
+ * [new branch]      langdale   -> github/langdale
+ * [new branch]      master     -> github/master
+ * [new branch]      mickledore -> github/mickledore
+ * [new branch]      morty      -> github/morty
+ * [new branch]      nanbield   -> github/nanbield
+ * [new branch]      pyro       -> github/pyro
+ * [new branch]      rocko      -> github/rocko
+ * [new branch]      sumo       -> github/sumo
+ * [new branch]      thud       -> github/thud
+ * [new branch]      warrior    -> github/warrior
+ * [new branch]      zeus       -> github/zeus
+remote: Enumerating objects: 639800, done.        | 658.00 KiB/s
+Fetching projects:  28% (2/7) rauc/meta-raucReceiving objects:   9% (873/9694), 92.00 KiB | 51.00 KiBremote: Total 16514 (delta 12070), reused 16284 (delta 11945), pack-reused 0        
+Receiving objects: 100% (16514/16514), 4.00 MiB | 1.17 MiB/s, done.
+Resolving deltas: 100% (12070/12070), done. KiB | 65.00 KiB/ss 
+From https://github.com/meta-qt5/meta-qt5.00 KiB | 99.00 KiB/s
+ * [new branch]      daisy                   -> github/daisy
+ * [new branch]      dizzy                   -> github/dizzy
+ * [new branch]      dora                    -> github/dora
+ * [new branch]      dora-next               -> github/dora-next
+ * [new branch]      dunfell                 -> github/dunfell
+ * [new branch]      dunfell-next            -> github/dunfell-next
+ * [new branch]      dylan                   -> github/dylan
+ * [new branch]      fido                    -> github/fido
+ * [new branch]      fido-next               -> github/fido-next
+ * [new branch]      gatesgarth              -> github/gatesgarth
+ * [new branch]      gatesgarth-next         -> github/gatesgarth-next
+ * [new branch]      hardknott               -> github/hardknott
+ * [new branch]      hardknott-next          -> github/hardknott-next
+ * [new branch]      honister                -> github/honister
+ * [new branch]      jansa/bison             -> github/jansa/bison
+ * [new branch]      jansa/chromium-87       -> github/jansa/chromium-87
+ * [new branch]      jansa/daisy             -> github/jansa/daisy
+ * [new branch]      jansa/dizzy             -> github/jansa/dizzy
+ * [new branch]      jansa/dunfell           -> github/jansa/dunfell
+ * [new branch]      jansa/fido              -> github/jansa/fido
+ * [new branch]      jansa/gatesgarth        -> github/jansa/gatesgarth
+ * [new branch]      jansa/hardknott         -> github/jansa/hardknott
+ * [new branch]      jansa/honister          -> github/jansa/honister
+ * [new branch]      jansa/jethro            -> github/jansa/jethro
+ * [new branch]      jansa/kirkstone         -> github/jansa/kirkstone
+ * [new branch]      jansa/krogoth           -> github/jansa/krogoth
+ * [new branch]      jansa/langdale          -> github/jansa/langdale
+ * [new branch]      jansa/master            -> github/jansa/master
+ * [new branch]      jansa/master-5.12       -> github/jansa/master-5.12
+ * [new branch]      jansa/master-5.15       -> github/jansa/master-5.15
+ * [new branch]      jansa/master-py3        -> github/jansa/master-py3
+ * [new branch]      jansa/mickledore        -> github/jansa/mickledore
+ * [new branch]      jansa/morty             -> github/jansa/morty
+ * [new branch]      jansa/pyro              -> github/jansa/pyro
+ * [new branch]      jansa/qt5-creator       -> github/jansa/qt5-creator
+ * [new branch]      jansa/rocko             -> github/jansa/rocko
+ * [new branch]      jansa/sumo              -> github/jansa/sumo
+ * [new branch]      jansa/thud              -> github/jansa/thud
+ * [new branch]      jansa/warrior           -> github/jansa/warrior
+ * [new branch]      jansa/warrior-overrides -> github/jansa/warrior-overrides
+ * [new branch]      jansa/zeus              -> github/jansa/zeus
+ * [new branch]      jethro                  -> github/jethro
+ * [new branch]      jethro-next             -> github/jethro-next
+ * [new branch]      kirkstone               -> github/kirkstone
+ * [new branch]      kirkstone-next          -> github/kirkstone-next
+ * [new branch]      krogoth                 -> github/krogoth
+ * [new branch]      krogoth-next            -> github/krogoth-next
+ * [new branch]      langdale                -> github/langdale
+ * [new branch]      master                  -> github/master
+ * [new branch]      master-next             -> github/master-next
+ * [new branch]      mickledore              -> github/mickledore
+ * [new branch]      mickledore-next         -> github/mickledore-next
+ * [new branch]      morty                   -> github/morty
+ * [new branch]      morty-next              -> github/morty-next
+ * [new branch]      pyro                    -> github/pyro
+ * [new branch]      pyro-next               -> github/pyro-next
+ * [new branch]      rocko                   -> github/rocko
+ * [new branch]      rocko-next              -> github/rocko-next
+ * [new branch]      sumo                    -> github/sumo
+ * [new branch]      sumo-next               -> github/sumo-next
+ * [new branch]      thud                    -> github/thud
+ * [new branch]      thud-next               -> github/thud-next
+ * [new branch]      warrior                 -> github/warrior
+ * [new branch]      warrior-next            -> github/warrior-next
+ * [new branch]      zeus                    -> github/zeus
+ * [new branch]      zeus-next               -> github/zeus-next
+ * [new tag]         5.2.1+origin/release    -> 5.2.1+origin/release
+ * [new tag]         jansa/test-2013-10-08   -> jansa/test-2013-10-08
+ * [new tag]         master-next-2014-02-19  -> master-next-2014-02-19
+Fetching projects:  42% (3/7) meta-qt5/meta-qt5Receiving objects:  16% (6297/39354), 396.00 KiB | 99.remote: Total 9694 (delta 6024), reused 5660 (delta 3363)        
+Receiving objects: 100% (9694/9694), 1.52 MiB | 277.00 KiB/s, done.
+Resolving deltas: 100% (6024/6024), done.
+From git://git.phytec.de/meta-yogurt
+ * [new branch]      1.7.2-phy1-fix           -> git.phytec/1.7.2-phy1-fix
+ * [new branch]      1.7.2-phy3-fix           -> git.phytec/1.7.2-phy3-fix
+ * [new branch]      1.8.1-phy2-fix           -> git.phytec/1.8.1-phy2-fix
+ * [new branch]      1.8.1-phy3-fix           -> git.phytec/1.8.1-phy3-fix
+ * [new branch]      1.8.1-phy6-fix           -> git.phytec/1.8.1-phy6-fix
+ * [new branch]      dizzy                    -> git.phytec/dizzy
+ * [new branch]      dunfell                  -> git.phytec/dunfell
+ * [new branch]      fido                     -> git.phytec/fido
+ * [new branch]      jethro                   -> git.phytec/jethro
+ * [new branch]      krogoth                  -> git.phytec/krogoth
+ * [new branch]      master                   -> git.phytec/master
+ * [new branch]      morty                    -> git.phytec/morty
+ * [new branch]      pyro                     -> git.phytec/pyro
+ * [new branch]      rocko                    -> git.phytec/rocko
+ * [new branch]      sumo                     -> git.phytec/sumo
+ * [new branch]      thud                     -> git.phytec/thud
+ * [new branch]      warrior                  -> git.phytec/warrior
+ * [new branch]      zeus                     -> git.phytec/zeus
+ * [new tag]         2.5.3-phy7               -> 2.5.3-phy7
+ * [new tag]         1.7.0-phy1               -> 1.7.0-phy1
+ * [new tag]         1.7.0-phy2               -> 1.7.0-phy2
+ * [new tag]         1.7.2-phy1               -> 1.7.2-phy1
+ * [new tag]         1.7.2-phy1-fix1          -> 1.7.2-phy1-fix1
+ * [new tag]         1.7.2-phy2               -> 1.7.2-phy2
+ * [new tag]         1.7.2-phy3               -> 1.7.2-phy3B/s
+ * [new tag]         1.7.2-phy3-fix1          -> 1.7.2-phy3-fix1
+ * [new tag]         1.7.2-phy4               -> 1.7.2-phy4
+ * [new tag]         1.7.3-phy1               -> 1.7.3-phy1
+ * [new tag]         1.8.1-phy1               -> 1.8.1-phy1
+ * [new tag]         1.8.1-phy2               -> 1.8.1-phy2
+ * [new tag]         1.8.1-phy2-fix1          -> 1.8.1-phy2-fix1
+ * [new tag]         1.8.1-phy2-fix2          -> 1.8.1-phy2-fix2
+ * [new tag]         1.8.1-phy3               -> 1.8.1-phy3
+ * [new tag]         1.8.1-phy3-fix1          -> 1.8.1-phy3-fix1
+ * [new tag]         1.8.1-phy3-fix2          -> 1.8.1-phy3-fix2
+ * [new tag]         1.8.1-phy4               -> 1.8.1-phy4
+ * [new tag]         1.8.1-phy5               -> 1.8.1-phy5
+ * [new tag]         1.8.1-phy6               -> 1.8.1-phy6
+ * [new tag]         1.8.1-phy6-fix1          -> 1.8.1-phy6-fix1
+ * [new tag]         2.0.1-phy1               -> 2.0.1-phy1
+ * [new tag]         2.0.1-phy2               -> 2.0.1-phy2
+ * [new tag]         2.0.1-phy3               -> 2.0.1-phy3
+ * [new tag]         2.1.1-phy1               -> 2.1.1-phy1
+ * [new tag]         2.1.1-phy2               -> 2.1.1-phy2
+ * [new tag]         2.1.2-phy1               -> 2.1.2-phy1
+ * [new tag]         2.1.2-phy2               -> 2.1.2-phy2
+ * [new tag]         2.1.2-phy3               -> 2.1.2-phy3
+ * [new tag]         2.1.2-phy4               -> 2.1.2-phy4
+ * [new tag]         2.1.2-phy5               -> 2.1.2-phy5
+ * [new tag]         2.1.3-phy1               -> 2.1.3-phy1
+ * [new tag]         2.1.3-phy2               -> 2.1.3-phy2
+ * [new tag]         2.1.3-phy3               -> 2.1.3-phy3
+ * [new tag]         2.1.3-phy4               -> 2.1.3-phy4
+ * [new tag]         2.1.3-phy5               -> 2.1.3-phy5
+ * [new tag]         2.1.3-phy6               -> 2.1.3-phy6
+ * [new tag]         2.1.3-phy7               -> 2.1.3-phy7
+ * [new tag]         2.1.3-phy8               -> 2.1.3-phy8
+ * [new tag]         2.2.1-phy1               -> 2.2.1-phy1
+ * [new tag]         2.2.1-phy2               -> 2.2.1-phy2
+ * [new tag]         2.2.1-phy3               -> 2.2.1-phy3
+ * [new tag]         2.2.1-phy4               -> 2.2.1-phy4
+ * [new tag]         2.2.1-phy5               -> 2.2.1-phy5
+ * [new tag]         2.2.1-phy6               -> 2.2.1-phy6
+ * [new tag]         2.2.1-phy7               -> 2.2.1-phy7
+ * [new tag]         2.2.1-phy8               -> 2.2.1-phy8
+ * [new tag]         2.2.1-phy9               -> 2.2.1-phy9
+ * [new tag]         2.2.2-phy1               -> 2.2.2-phy1
+ * [new tag]         2.2.2-phy2               -> 2.2.2-phy2
+ * [new tag]         2.2.2-phy3               -> 2.2.2-phy3
+ * [new tag]         2.2.2-phy4               -> 2.2.2-phy4
+ * [new tag]         2.2.2-phy5               -> 2.2.2-phy5
+ * [new tag]         2.2.2-phy6               -> 2.2.2-phy6
+ * [new tag]         2.2.3-phy1               -> 2.2.3-phy1
+ * [new tag]         2.2.4-phy1               -> 2.2.4-phy1
+ * [new tag]         2.2.4-phy2               -> 2.2.4-phy2
+ * [new tag]         2.2.4-phy3               -> 2.2.4-phy3
+ * [new tag]         2.2.4-phy4               -> 2.2.4-phy4
+ * [new tag]         2.2.4-phy6               -> 2.2.4-phy6
+ * [new tag]         2.2.4-phy9               -> 2.2.4-phy9
+ * [new tag]         2.3.2-phy1               -> 2.3.2-phy1
+ * [new tag]         2.3.2-phy2               -> 2.3.2-phy2
+ * [new tag]         2.3.3-phy1               -> 2.3.3-phy1
+ * [new tag]         2.3.3-phy2               -> 2.3.3-phy2
+ * [new tag]         2.4.2-phy1               -> 2.4.2-phy1
+ * [new tag]         2.4.3-phy1               -> 2.4.3-phy1
+ * [new tag]         2.4.3-phy2               -> 2.4.3-phy2
+ * [new tag]         2.4.3-phy3               -> 2.4.3-phy3
+ * [new tag]         2.4.3-phy4               -> 2.4.3-phy4
+ * [new tag]         2.4.4-phy1               -> 2.4.4-phy1
+ * [new tag]         2.4.4-phy2               -> 2.4.4-phy2
+ * [new tag]         2.4.4-phy3               -> 2.4.4-phy3
+ * [new tag]         2.4.4-phy4               -> 2.4.4-phy4
+ * [new tag]         2.4.4-phy5               -> 2.4.4-phy5
+ * [new tag]         2.4.4-phy6               -> 2.4.4-phy6
+ * [new tag]         2.5.2-phy1               -> 2.5.2-phy1
+ * [new tag]         2.5.2-phy2               -> 2.5.2-phy2
+ * [new tag]         2.5.2-phy3               -> 2.5.2-phy3
+ * [new tag]         2.5.3-phy1               -> 2.5.3-phy1
+ * [new tag]         2.5.3-phy10              -> 2.5.3-phy10
+ * [new tag]         2.5.3-phy11              -> 2.5.3-phy11
+ * [new tag]         2.5.3-phy12              -> 2.5.3-phy12
+ * [new tag]         2.5.3-phy13              -> 2.5.3-phy13
+ * [new tag]         2.5.3-phy14              -> 2.5.3-phy14
+ * [new tag]         2.5.3-phy15              -> 2.5.3-phy15
+ * [new tag]         2.5.3-phy16              -> 2.5.3-phy16
+ * [new tag]         2.5.3-phy17              -> 2.5.3-phy17
+ * [new tag]         2.5.3-phy18              -> 2.5.3-phy18
+ * [new tag]         2.5.3-phy19              -> 2.5.3-phy19
+ * [new tag]         2.5.3-phy2               -> 2.5.3-phy2
+ * [new tag]         2.5.3-phy3               -> 2.5.3-phy3
+ * [new tag]         2.5.3-phy4               -> 2.5.3-phy4
+ * [new tag]         2.5.3-phy5               -> 2.5.3-phy5
+ * [new tag]         2.5.3-phy6               -> 2.5.3-phy6
+ * [new tag]         2.5.3-phy8               -> 2.5.3-phy8
+ * [new tag]         2.5.3-phy9               -> 2.5.3-phy9
+ * [new tag]         2.6.2-phy1               -> 2.6.2-phy1
+ * [new tag]         2.6.2-phy2               -> 2.6.2-phy2
+ * [new tag]         2.6.2-phy3               -> 2.6.2-phy3
+ * [new tag]         2.6.3-phy1               -> 2.6.3-phy1
+ * [new tag]         2.6.3-phy2               -> 2.6.3-phy2
+ * [new tag]         2.6.3-phy3               -> 2.6.3-phy3
+ * [new tag]         2.7.1-phy1               -> 2.7.1-phy1
+ * [new tag]         2.7.1-phy2               -> 2.7.1-phy2
+ * [new tag]         2.7.3-phy1               -> 2.7.3-phy1
+ * [new tag]         2.7.3-phy2               -> 2.7.3-phy2
+ * [new tag]         2.7.3-phy3               -> 2.7.3-phy3
+ * [new tag]         2.7.3-phy4               -> 2.7.3-phy4
+ * [new tag]         2.7.3-phy5               -> 2.7.3-phy5
+ * [new tag]         2.7.4-phy1               -> 2.7.4-phy1
+ * [new tag]         2.7.4-phy2               -> 2.7.4-phy2
+ * [new tag]         3.0.4-phy1               -> 3.0.4-phy1
+ * [new tag]         3.0.4-phy10              -> 3.0.4-phy10
+ * [new tag]         3.0.4-phy11              -> 3.0.4-phy11
+ * [new tag]         3.0.4-phy12              -> 3.0.4-phy12
+ * [new tag]         3.0.4-phy13              -> 3.0.4-phy13
+ * [new tag]         3.0.4-phy14              -> 3.0.4-phy14
+ * [new tag]         3.0.4-phy15              -> 3.0.4-phy15
+ * [new tag]         3.0.4-phy16              -> 3.0.4-phy16
+ * [new tag]         3.0.4-phy17              -> 3.0.4-phy17
+ * [new tag]         3.0.4-phy18              -> 3.0.4-phy18
+ * [new tag]         3.0.4-phy19              -> 3.0.4-phy19
+ * [new tag]         3.0.4-phy2               -> 3.0.4-phy2
+ * [new tag]         3.0.4-phy20              -> 3.0.4-phy20
+ * [new tag]         3.0.4-phy3               -> 3.0.4-phy3
+ * [new tag]         3.0.4-phy4               -> 3.0.4-phy4
+ * [new tag]         3.0.4-phy5               -> 3.0.4-phy5
+ * [new tag]         3.0.4-phy6               -> 3.0.4-phy6
+ * [new tag]         3.0.4-phy7               -> 3.0.4-phy7
+ * [new tag]         3.0.4-phy8               -> 3.0.4-phy8
+ * [new tag]         3.0.4-phy9               -> 3.0.4-phy9
+ * [new tag]         3.1.3-phy1               -> 3.1.3-phy1
+ * [new tag]         3.1.5-phy1               -> 3.1.5-phy1
+ * [new tag]         BSP-Yocto-AM57x-PD23.1.0 -> BSP-Yocto-AM57x-PD23.1.0
+ * [new tag]         BSP-Yocto-AM62Ax-ALPHA1  -> BSP-Yocto-AM62Ax-ALPHA1
+ * [new tag]         BSP-Yocto-AM62Ax-ALPHA2  -> BSP-Yocto-AM62Ax-ALPHA2
+ * [new tag]         BSP-Yocto-AM62x-PD23.1.0 -> BSP-Yocto-AM62x-PD23.1.0
+ * [new tag]         BSP-Yocto-AM62x-PD23.1.1 -> BSP-Yocto-AM62x-PD23.1.1
+ * [new tag]         BSP-Yocto-AM64x-PD23.1.0 -> BSP-Yocto-AM64x-PD23.1.0
+ * [new tag]         BSP-Yocto-AM64x-PD23.1.1 -> BSP-Yocto-AM64x-PD23.1.1
+ * [new tag]         BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.5 -> BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.5
+ * [new tag]         BSP-Yocto-FSL-i.MX8MP-PD21.1.2 -> BSP-Yocto-FSL-i.MX8MP-PD21.1.2
+ * [new tag]         BSP-Yocto-FSL-i.MX8MP-PD21.1.3 -> BSP-Yocto-FSL-i.MX8MP-PD21.1.3
+ * [new tag]         BSP-Yocto-TISDK-AM62x-ALPHA1 -> BSP-Yocto-TISDK-AM62x-ALPHA1
+ * [new tag]         BSP-Yocto-TISDK-AM64x-ALPHA1 -> BSP-Yocto-TISDK-AM64x-ALPHA1
+ * [new tag]         BSP-Yocto-TISDK-AM64x-ALPHA2 -> BSP-Yocto-TISDK-AM64x-ALPHA2
+ * [new tag]         BSP-Yocto-TISDK-AM68x-ALPHA1 -> BSP-Yocto-TISDK-AM68x-ALPHA1
+Fetching projects:  57% (4/7) meta-yogurtReceiving objects:  45% (17780/39354), 2.54 MiB | 420.00 KiBremote: Total 39354 (delta 2543), reused 884 (delta 658)        
+Receiving objects: 100% (39354/39354), 5.34 MiB | 483.00 KiB/s, done.
+Resolving deltas: 100% (29895/29895), done.
+From git://git.phytec.de/meta-phytec
+ * [new branch]        1.8.1-phy2-fix              -> git.phytec/1.8.1-phy2-fix
+ * [new branch]        1.8.1-phy6-fix              -> git.phytec/1.8.1-phy6-fix
+ * [new branch]        dizzy                       -> git.phytec/dizzy
+ * [new branch]        dunfell                     -> git.phytec/dunfell
+ * [new branch]        fido                        -> git.phytec/fido
+ * [new branch]        gatesgarth                  -> git.phytec/gatesgarth
+ * [new branch]        hardknott                   -> git.phytec/hardknott
+ * [new branch]        honister                    -> git.phytec/honister
+ * [new branch]        jethro                      -> git.phytec/jethro
+ * [new branch]        kirkstone                   -> git.phytec/kirkstone
+ * [new branch]        krogoth                     -> git.phytec/krogoth
+ * [new branch]        langdale                    -> git.phytec/langdale
+ * [new branch]        master                      -> git.phytec/master
+ * [new branch]        mickledore                  -> git.phytec/mickledore
+ * [new branch]        morty                       -> git.phytec/morty
+ * [new branch]        pyro                        -> git.phytec/pyro
+ * [new branch]        rocko                       -> git.phytec/rocko
+ * [new branch]        scarthgap                   -> git.phytec/scarthgap
+ * [new branch]        sumo                        -> git.phytec/sumo
+ * [new branch]        thud                        -> git.phytec/thud
+ * [new branch]        warrior                     -> git.phytec/warrior
+ * [new branch]        zeus                        -> git.phytec/zeus
+ * [new tag]           2.5.3-phy7                  -> 2.5.3-phy7
+ * [new tag]           1.7.0-phy1                  -> 1.7.0-phy1
+ * [new tag]           1.7.0-phy2                  -> 1.7.0-phy2
+ * [new tag]           1.7.0-phy3                  -> 1.7.0-phy3
+ * [new tag]           1.7.2-phy1                  -> 1.7.2-phy1
+ * [new tag]           1.7.2-phy2                  -> 1.7.2-phy2
+ * [new tag]           1.7.3-phy1                  -> 1.7.3-phy1
+ * [new tag]           1.8.1-phy1                  -> 1.8.1-phy1
+ * [new tag]           1.8.1-phy2                  -> 1.8.1-phy2
+ * [new tag]           1.8.1-phy2-fix1             -> 1.8.1-phy2-fix1
+ * [new tag]           1.8.1-phy3                  -> 1.8.1-phy3
+ * [new tag]           1.8.1-phy4                  -> 1.8.1-phy4
+ * [new tag]           1.8.1-phy5                  -> 1.8.1-phy5
+ * [new tag]           1.8.1-phy6                  -> 1.8.1-phy6
+ * [new tag]           1.8.1-phy6-fix1             -> 1.8.1-phy6-fix1
+ * [new tag]           1.8.1-phy7                  -> 1.8.1-phy7
+ * [new tag]           1.8.1-phy8                  -> 1.8.1-phy8
+ * [new tag]           2.0.1-phy1                  -> 2.0.1-phy1
+ * [new tag]           2.0.1-phy2                  -> 2.0.1-phy2
+ * [new tag]           2.0.1-phy3                  -> 2.0.1-phy3
+ * [new tag]           2.1.1-phy1                  -> 2.1.1-phy1
+ * [new tag]           2.1.1-phy2                  -> 2.1.1-phy2
+ * [new tag]           2.1.2-phy1                  -> 2.1.2-phy1
+ * [new tag]           2.1.2-phy2                  -> 2.1.2-phy2
+ * [new tag]           2.1.2-phy3                  -> 2.1.2-phy3
+ * [new tag]           2.1.2-phy4                  -> 2.1.2-phy4
+ * [new tag]           2.1.2-phy5                  -> 2.1.2-phy5
+ * [new tag]           2.1.3-phy1                  -> 2.1.3-phy1
+ * [new tag]           2.1.3-phy2                  -> 2.1.3-phy2
+ * [new tag]           2.1.3-phy3                  -> 2.1.3-phy3
+ * [new tag]           2.1.3-phy4                  -> 2.1.3-phy4
+ * [new tag]           2.1.3-phy5                  -> 2.1.3-phy5
+ * [new tag]           2.1.3-phy6                  -> 2.1.3-phy6
+ * [new tag]           2.1.3-phy7                  -> 2.1.3-phy7
+ * [new tag]           2.1.3-phy8                  -> 2.1.3-phy8
+ * [new tag]           2.2.1-phy1                  -> 2.2.1-phy1
+ * [new tag]           2.2.1-phy2                  -> 2.2.1-phy2
+ * [new tag]           2.2.1-phy3                  -> 2.2.1-phy3
+ * [new tag]           2.2.1-phy4                  -> 2.2.1-phy4
+ * [new tag]           2.2.1-phy5                  -> 2.2.1-phy5
+ * [new tag]           2.2.1-phy6                  -> 2.2.1-phy6
+ * [new tag]           2.2.1-phy7                  -> 2.2.1-phy7
+ * [new tag]           2.2.1-phy8                  -> 2.2.1-phy8
+ * [new tag]           2.2.1-phy9                  -> 2.2.1-phy9
+ * [new tag]           2.2.2-phy1                  -> 2.2.2-phy1
+ * [new tag]           2.2.2-phy2                  -> 2.2.2-phy2
+ * [new tag]           2.2.2-phy3                  -> 2.2.2-phy3
+ * [new tag]           2.2.2-phy4                  -> 2.2.2-phy4
+ * [new tag]           2.2.2-phy5                  -> 2.2.2-phy5
+ * [new tag]           2.2.2-phy6                  -> 2.2.2-phy6
+ * [new tag]           2.2.3-phy1                  -> 2.2.3-phy1
+ * [new tag]           2.2.4-phy1                  -> 2.2.4-phy1
+ * [new tag]           2.2.4-phy2                  -> 2.2.4-phy2
+ * [new tag]           2.2.4-phy3                  -> 2.2.4-phy3
+ * [new tag]           2.2.4-phy4                  -> 2.2.4-phy4
+ * [new tag]           2.2.4-phy5                  -> 2.2.4-phy5
+ * [new tag]           2.2.4-phy6                  -> 2.2.4-phy6
+ * [new tag]           2.2.4-phy7                  -> 2.2.4-phy7
+ * [new tag]           2.2.4-phy8                  -> 2.2.4-phy8
+ * [new tag]           2.2.4-phy9                  -> 2.2.4-phy9
+ * [new tag]           2.3.2-phy1                  -> 2.3.2-phy1
+ * [new tag]           2.3.2-phy2                  -> 2.3.2-phy2
+ * [new tag]           2.3.3-phy1                  -> 2.3.3-phy1
+ * [new tag]           2.3.3-phy2                  -> 2.3.3-phy2
+ * [new tag]           2.4.2-phy1                  -> 2.4.2-phy1
+ * [new tag]           2.4.3-phy1                  -> 2.4.3-phy1
+ * [new tag]           2.4.3-phy2                  -> 2.4.3-phy2
+ * [new tag]           2.4.3-phy3                  -> 2.4.3-phy3
+ * [new tag]           2.4.3-phy4                  -> 2.4.3-phy4
+ * [new tag]           2.4.4-phy1                  -> 2.4.4-phy1
+ * [new tag]           2.4.4-phy2                  -> 2.4.4-phy2
+ * [new tag]           2.4.4-phy3                  -> 2.4.4-phy3
+ * [new tag]           2.4.4-phy4                  -> 2.4.4-phy4
+ * [new tag]           2.4.4-phy5                  -> 2.4.4-phy5
+ * [new tag]           2.4.4-phy6                  -> 2.4.4-phy6
+ * [new tag]           2.5.2-phy1                  -> 2.5.2-phy1
+ * [new tag]           2.5.2-phy2                  -> 2.5.2-phy2
+ * [new tag]           2.5.2-phy3                  -> 2.5.2-phy3
+ * [new tag]           2.5.3-phy1                  -> 2.5.3-phy1
+ * [new tag]           2.5.3-phy10                 -> 2.5.3-phy10
+ * [new tag]           2.5.3-phy11                 -> 2.5.3-phy11
+ * [new tag]           2.5.3-phy12                 -> 2.5.3-phy12
+ * [new tag]           2.5.3-phy13                 -> 2.5.3-phy13
+ * [new tag]           2.5.3-phy14                 -> 2.5.3-phy14
+ * [new tag]           2.5.3-phy15                 -> 2.5.3-phy15
+ * [new tag]           2.5.3-phy16                 -> 2.5.3-phy16
+ * [new tag]           2.5.3-phy17                 -> 2.5.3-phy17
+ * [new tag]           2.5.3-phy18                 -> 2.5.3-phy18
+ * [new tag]           2.5.3-phy19                 -> 2.5.3-phy19
+ * [new tag]           2.5.3-phy2                  -> 2.5.3-phy2
+ * [new tag]           2.5.3-phy3                  -> 2.5.3-phy3
+ * [new tag]           2.5.3-phy4                  -> 2.5.3-phy4
+ * [new tag]           2.5.3-phy5                  -> 2.5.3-phy5
+ * [new tag]           2.5.3-phy6                  -> 2.5.3-phy6
+ * [new tag]           2.5.3-phy8                  -> 2.5.3-phy8
+ * [new tag]           2.5.3-phy9                  -> 2.5.3-phy9
+ * [new tag]           2.6.2-phy1                  -> 2.6.2-phy1
+ * [new tag]           2.6.2-phy2                  -> 2.6.2-phy2
+ * [new tag]           2.6.2-phy3                  -> 2.6.2-phy3
+ * [new tag]           2.6.3-phy1                  -> 2.6.3-phy1
+ * [new tag]           2.6.3-phy2                  -> 2.6.3-phy2
+ * [new tag]           2.6.3-phy3                  -> 2.6.3-phy3
+ * [new tag]           2.6.3-phy4                  -> 2.6.3-phy4
+ * [new tag]           2.7.1-phy1                  -> 2.7.1-phy1
+ * [new tag]           2.7.1-phy2                  -> 2.7.1-phy2
+ * [new tag]           2.7.3-phy1                  -> 2.7.3-phy1
+ * [new tag]           2.7.3-phy2                  -> 2.7.3-phy2
+ * [new tag]           2.7.3-phy3                  -> 2.7.3-phy3
+ * [new tag]           2.7.3-phy4                  -> 2.7.3-phy4
+ * [new tag]           2.7.3-phy5                  -> 2.7.3-phy5
+ * [new tag]           2.7.4-phy1                  -> 2.7.4-phy1
+ * [new tag]           2.7.4-phy2                  -> 2.7.4-phy2
+ * [new tag]           3.0.4-phy1                  -> 3.0.4-phy1
+ * [new tag]           3.0.4-phy10                 -> 3.0.4-phy10
+ * [new tag]           3.0.4-phy11                 -> 3.0.4-phy11
+ * [new tag]           3.0.4-phy12                 -> 3.0.4-phy12
+ * [new tag]           3.0.4-phy13                 -> 3.0.4-phy13
+ * [new tag]           3.0.4-phy14                 -> 3.0.4-phy14
+ * [new tag]           3.0.4-phy15                 -> 3.0.4-phy15
+ * [new tag]           3.0.4-phy16                 -> 3.0.4-phy16
+ * [new tag]           3.0.4-phy17                 -> 3.0.4-phy17
+ * [new tag]           3.0.4-phy18                 -> 3.0.4-phy18
+ * [new tag]           3.0.4-phy19                 -> 3.0.4-phy19
+ * [new tag]           3.0.4-phy2                  -> 3.0.4-phy2
+ * [new tag]           3.0.4-phy20                 -> 3.0.4-phy20
+ * [new tag]           3.0.4-phy3                  -> 3.0.4-phy3
+ * [new tag]           3.0.4-phy4                  -> 3.0.4-phy4
+ * [new tag]           3.0.4-phy5                  -> 3.0.4-phy5
+ * [new tag]           3.0.4-phy6                  -> 3.0.4-phy6
+ * [new tag]           3.0.4-phy7                  -> 3.0.4-phy7
+ * [new tag]           3.0.4-phy8                  -> 3.0.4-phy8
+ * [new tag]           3.0.4-phy9                  -> 3.0.4-phy9
+ * [new tag]           3.1.3-phy1                  -> 3.1.3-phy1
+ * [new tag]           3.1.5-phy1                  -> 3.1.5-phy1
+ * [new tag]           3.3.1-phy1                  -> 3.3.1-phy1
+ * [new tag]           3.3.1-phy2                  -> 3.3.1-phy2
+ * [new tag]           3.3.1-phy3                  -> 3.3.1-phy3
+ * [new tag]           3.3.2-phy1                  -> 3.3.2-phy1
+ * [new tag]           3.3.3-phy1                  -> 3.3.3-phy1
+ * [new tag]           3.3.3-phy2                  -> 3.3.3-phy2
+ * [new tag]           3.3.3-phy3                  -> 3.3.3-phy3
+ * [new tag]           3.3.4-phy1                  -> 3.3.4-phy1
+ * [new tag]           3.3.4-phy2                  -> 3.3.4-phy2
+ * [new tag]           BSP-Yocto-AM57x-PD23.1.0    -> BSP-Yocto-AM57x-PD23.1.0
+ * [new tag]           BSP-Yocto-AM62Ax-ALPHA1     -> BSP-Yocto-AM62Ax-ALPHA1
+ * [new tag]           BSP-Yocto-AM62Ax-ALPHA2     -> BSP-Yocto-AM62Ax-ALPHA2
+ * [new tag]           BSP-Yocto-AM62x-PD23.1.0    -> BSP-Yocto-AM62x-PD23.1.0
+ * [new tag]           BSP-Yocto-AM62x-PD23.1.1    -> BSP-Yocto-AM62x-PD23.1.1
+ * [new tag]           BSP-Yocto-AM64x-PD23.1.0    -> BSP-Yocto-AM64x-PD23.1.0
+ * [new tag]           BSP-Yocto-AM64x-PD23.1.1    -> BSP-Yocto-AM64x-PD23.1.1
+ * [new tag]           BSP-Yocto-Ampliphy-AM335x-PD23.1.0 -> BSP-Yocto-Ampliphy-AM335x-PD23.1.0
+ * [new tag]           BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0 -> BSP-Yocto-Ampliphy-AM62Ax-PD23.1.0
+ * [new tag]           BSP-Yocto-Ampliphy-AM62x-PD23.2.0 -> BSP-Yocto-Ampliphy-AM62x-PD23.2.0
+ * [new tag]           BSP-Yocto-Ampliphy-AM64x-PD23.2.0 -> BSP-Yocto-Ampliphy-AM64x-PD23.2.0
+ * [new tag]           BSP-Yocto-Ampliphy-AM68x-ALPHA2 -> BSP-Yocto-Ampliphy-AM68x-ALPHA2
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6-PD21.1.1 -> BSP-Yocto-Ampliphy-i.MX6-PD21.1.1
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6-PD22.1.0 -> BSP-Yocto-Ampliphy-i.MX6-PD22.1.0
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6-PD22.1.1 -> BSP-Yocto-Ampliphy-i.MX6-PD22.1.1
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.0 -> BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.0
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.1 -> BSP-Yocto-Ampliphy-i.MX6UL-PD21.2.1
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0 -> BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.0
+ * [new tag]           BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1 -> BSP-Yocto-Ampliphy-i.MX6UL-PD22.1.1
+ * [new tag]           BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.5 -> BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.5
+ * [new tag]           BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.6 -> BSP-Yocto-CelebrityFaceMatch-i.MX8MP-v0.6
+ * [new tag]           BSP-Yocto-Connagtive-i.MX8MM-v2.0 -> BSP-Yocto-Connagtive-i.MX8MM-v2.0
+ * [new tag]           BSP-Yocto-FSL-i.MX8MP-PD21.1.2 -> BSP-Yocto-FSL-i.MX8MP-PD21.1.2
+ * [new tag]           BSP-Yocto-FSL-i.MX8MP-PD21.1.3 -> BSP-Yocto-FSL-i.MX8MP-PD21.1.3
+ * [new tag]           BSP-Yocto-KivyDemo-i.MX8MP-v0.1 -> BSP-Yocto-KivyDemo-i.MX8MP-v0.1
+ * [new tag]           BSP-Yocto-LVGLDemo-i.MX8MP-v0.1 -> BSP-Yocto-LVGLDemo-i.MX8MP-v0.1
+ * [new tag]           BSP-Yocto-NXP-i.MX7-PD23.1.0 -> BSP-Yocto-NXP-i.MX7-PD23.1.0
+ * [new tag]           BSP-Yocto-NXP-i.MX8MM-PD22.1-rc1 -> BSP-Yocto-NXP-i.MX8MM-PD22.1-rc1
+ * [new tag]           BSP-Yocto-NXP-i.MX8MM-PD22.1.0 -> BSP-Yocto-NXP-i.MX8MM-PD22.1.0
+ * [new tag]           BSP-Yocto-NXP-i.MX8MM-PD22.1.1 -> BSP-Yocto-NXP-i.MX8MM-PD22.1.1
+ * [new tag]           BSP-Yocto-NXP-i.MX8MM-PD23.1.0 -> BSP-Yocto-NXP-i.MX8MM-PD23.1.0
+ * [new tag]           BSP-Yocto-NXP-i.MX8MP-PD22.1.0 -> BSP-Yocto-NXP-i.MX8MP-PD22.1.0
+ * [new tag]           BSP-Yocto-NXP-i.MX8MP-PD22.1.1 -> BSP-Yocto-NXP-i.MX8MP-PD22.1.1
+ * [new tag]           BSP-Yocto-NXP-i.MX8MP-PD23.1.0 -> BSP-Yocto-NXP-i.MX8MP-PD23.1.0
+ * [new tag]           BSP-Yocto-NXP-i.MX93-ALPHA1 -> BSP-Yocto-NXP-i.MX93-ALPHA1
+ * [new tag]           BSP-Yocto-NXP-i.MX93-PD24.1.0 -> BSP-Yocto-NXP-i.MX93-PD24.1.0
+ * [new tag]           BSP-Yocto-TISDK-AM62x-ALPHA1 -> BSP-Yocto-TISDK-AM62x-ALPHA1
+ * [new tag]           BSP-Yocto-TISDK-AM64x-ALPHA1 -> BSP-Yocto-TISDK-AM64x-ALPHA1
+ * [new tag]           BSP-Yocto-TISDK-AM64x-ALPHA2 -> BSP-Yocto-TISDK-AM64x-ALPHA2
+ * [new tag]           BSP-Yocto-TISDK-AM68x-ALPHA1 -> BSP-Yocto-TISDK-AM68x-ALPHA1
+remote: Total 235413 (delta 94), reused 33 (delta 33), pack-reused 235236        .11 MiB | 140.00 KiBReceiving objects:  14% (94139/639800), 45.73 MiB | 112.00 KiB/s 
+Receiving objects: 100% (235413/235413), 58.57 MiB | 166.00 KiB/s, done.
+Resolving deltas: 100% (143754/143754), done.8 MiB | 85.00 KiB/s 
+From git://git.openembedded.org/meta-openembeddedB | 69.00 KiB/s
+ * [new branch]          daisy                 -> oe/daisy
+ * [new branch]          daisy-next            -> oe/daisy-next
+ * [new branch]          danny                 -> oe/danny
+ * [new branch]          danny-next            -> oe/danny-next
+ * [new branch]          denzil                -> oe/denzil
+ * [new branch]          denzil-next           -> oe/denzil-next
+ * [new branch]          dizzy                 -> oe/dizzy
+ * [new branch]          dizzy-next            -> oe/dizzy-next
+ * [new branch]          dora                  -> oe/dora
+ * [new branch]          dora-next             -> oe/dora-next
+ * [new branch]          dunfell               -> oe/dunfell
+ * [new branch]          dunfell-next          -> oe/dunfell-next
+ * [new branch]          dylan                 -> oe/dylan
+ * [new branch]          dylan-next            -> oe/dylan-next
+ * [new branch]          fido                  -> oe/fido
+ * [new branch]          fido-next             -> oe/fido-next
+ * [new branch]          gatesgarth            -> oe/gatesgarth
+ * [new branch]          gatesgarth-next       -> oe/gatesgarth-next
+ * [new branch]          hardknott             -> oe/hardknott
+ * [new branch]          hardknott-next        -> oe/hardknott-next
+ * [new branch]          honister              -> oe/honister
+ * [new branch]          honister-next         -> oe/honister-next
+ * [new branch]          jethro                -> oe/jethro
+ * [new branch]          jethro-next           -> oe/jethro-next
+ * [new branch]          kirkstone             -> oe/kirkstone
+ * [new branch]          kirkstone-next        -> oe/kirkstone-next
+ * [new branch]          krogoth               -> oe/krogoth
+ * [new branch]          krogoth-next          -> oe/krogoth-next
+ * [new branch]          langdale              -> oe/langdale
+ * [new branch]          langdale-next         -> oe/langdale-next
+ * [new branch]          master                -> oe/master
+ * [new branch]          master-next           -> oe/master-next
+ * [new branch]          mickledore            -> oe/mickledore
+ * [new branch]          mickledore-net        -> oe/mickledore-net
+ * [new branch]          mickledore-next       -> oe/mickledore-next
+ * [new branch]          morty                 -> oe/morty
+ * [new branch]          morty-next            -> oe/morty-next
+ * [new branch]          nanbield              -> oe/nanbield
+ * [new branch]          nanbield-next         -> oe/nanbield-next
+ * [new branch]          pyro                  -> oe/pyro
+ * [new branch]          pyro-next             -> oe/pyro-next
+ * [new branch]          rocko                 -> oe/rocko
+ * [new branch]          rocko-next            -> oe/rocko-next
+ * [new branch]          stable/dufell-nut     -> oe/stable/dufell-nut
+ * [new branch]          stable/kirkstone-nut  -> oe/stable/kirkstone-nut
+ * [new branch]          stable/mickledore-nut -> oe/stable/mickledore-nut
+ * [new branch]          stable/thud-next      -> oe/stable/thud-next
+ * [new branch]          stable/thud-nmut      -> oe/stable/thud-nmut
+ * [new branch]          sumo                  -> oe/sumo
+ * [new branch]          sumo-next             -> oe/sumo-next
+ * [new branch]          thud                  -> oe/thud
+ * [new branch]          thud-next             -> oe/thud-next
+ * [new branch]          warrior               -> oe/warrior
+ * [new branch]          warrior-next          -> oe/warrior-next
+ * [new branch]          zeus                  -> oe/zeus
+ * [new branch]          zeus-next             -> oe/zeus-next
+remote: Total 639800 (delta 0), reused 0 (delta 0), pack-reused 639800        /639800), 80.71 MiB | 60.00 KiB/s
+Receiving objects: 100% (639800/639800), 202.87 MiB | 219.00 KiB/s, done.
+Resolving deltas: 100% (465894/465894), done.
+From git://git.yoctoproject.org/poky
+ * [new branch]            1.1_M1               -> yocto/1.1_M1
+ * [new branch]            1.1_M2               -> yocto/1.1_M2
+ * [new branch]            1.1_M3               -> yocto/1.1_M3
+ * [new branch]            1.1_M4               -> yocto/1.1_M4
+ * [new branch]            1.2_M1               -> yocto/1.2_M1
+ * [new branch]            1.2_M2               -> yocto/1.2_M2
+ * [new branch]            1.2_M3               -> yocto/1.2_M3
+ * [new branch]            1.2_M4               -> yocto/1.2_M4
+ * [new branch]            1.3_M1               -> yocto/1.3_M1
+ * [new branch]            1.3_M2               -> yocto/1.3_M2
+ * [new branch]            1.3_M3               -> yocto/1.3_M3
+ * [new branch]            1.3_M4               -> yocto/1.3_M4
+ * [new branch]            1.3_M5               -> yocto/1.3_M5
+ * [new branch]            1.3_beta             -> yocto/1.3_beta
+ * [new branch]            1.4_M1               -> yocto/1.4_M1
+ * [new branch]            1.4_M3               -> yocto/1.4_M3
+ * [new branch]            1.4_M4               -> yocto/1.4_M4
+ * [new branch]            1.4_M5               -> yocto/1.4_M5
+ * [new branch]            1.6_M5               -> yocto/1.6_M5
+ * [new branch]            bernard              -> yocto/bernard
+ * [new branch]            blinky               -> yocto/blinky
+ * [new branch]            clyde                -> yocto/clyde
+ * [new branch]            daisy                -> yocto/daisy
+ * [new branch]            danny                -> yocto/danny
+ * [new branch]            denzil               -> yocto/denzil
+ * [new branch]            dizzy                -> yocto/dizzy
+ * [new branch]            dora                 -> yocto/dora
+ * [new branch]            dora-toaster         -> yocto/dora-toaster
+ * [new branch]            dunfell              -> yocto/dunfell
+ * [new branch]            dylan                -> yocto/dylan
+ * [new branch]            edison               -> yocto/edison
+ * [new branch]            elroy                -> yocto/elroy
+ * [new branch]            fido                 -> yocto/fido
+ * [new branch]            gatesgarth           -> yocto/gatesgarth
+ * [new branch]            green                -> yocto/green
+ * [new branch]            hardknott            -> yocto/hardknott
+ * [new branch]            honister             -> yocto/honister
+ * [new branch]            jethro               -> yocto/jethro
+ * [new branch]            kirkstone            -> yocto/kirkstone
+ * [new branch]            krogoth              -> yocto/krogoth
+ * [new branch]            langdale             -> yocto/langdale
+ * [new branch]            laverne              -> yocto/laverne
+ * [new branch]            master               -> yocto/master
+ * [new branch]            master-next          -> yocto/master-next
+ * [new branch]            master-uninative     -> yocto/master-uninative
+ * [new branch]            mickledore           -> yocto/mickledore
+ * [new branch]            mickledore-next      -> yocto/mickledore-next
+ * [new branch]            morty                -> yocto/morty
+ * [new branch]            nanbield             -> yocto/nanbield
+ * [new branch]            pinky                -> yocto/pinky
+ * [new branch]            purple               -> yocto/purple
+ * [new branch]            pyro                 -> yocto/pyro
+ * [new branch]            rocko                -> yocto/rocko
+ * [new branch]            scarthgap            -> yocto/scarthgap
+ * [new branch]            sumo                 -> yocto/sumo
+ * [new branch]            thud                 -> yocto/thud
+ * [new branch]            warrior              -> yocto/warrior
+ * [new branch]            zeus                 -> yocto/zeus
+ * [new tag]               1.1_M1.final         -> 1.1_M1.final
+ * [new tag]               1.1_M1.rc1           -> 1.1_M1.rc1
+ * [new tag]               1.1_M1.rc2           -> 1.1_M1.rc2
+ * [new tag]               1.1_M2.final         -> 1.1_M2.final
+ * [new tag]               1.1_M2.rc1           -> 1.1_M2.rc1
+ * [new tag]               1.1_M2.rc2           -> 1.1_M2.rc2
+ * [new tag]               1.1_M2.rc3           -> 1.1_M2.rc3
+ * [new tag]               1.1_M3.final         -> 1.1_M3.final
+ * [new tag]               1.1_M3.rc2           -> 1.1_M3.rc2
+ * [new tag]               1.1_M3.rc3           -> 1.1_M3.rc3
+ * [new tag]               1.1_M4.rc2+          -> 1.1_M4.rc2+
+ * [new tag]               1.1_M4.rc3           -> 1.1_M4.rc3
+ * [new tag]               1.1_M4.rc4           -> 1.1_M4.rc4
+ * [new tag]               1.2_M1.final         -> 1.2_M1.final
+ * [new tag]               1.2_M1.rc1           -> 1.2_M1.rc1
+ * [new tag]               1.2_M1.rc2           -> 1.2_M1.rc2
+ * [new tag]               1.2_M2.final         -> 1.2_M2.final
+ * [new tag]               1.2_M2.rc1           -> 1.2_M2.rc1
+ * [new tag]               1.2_M3.final         -> 1.2_M3.final
+ * [new tag]               1.2_M3.rc1           -> 1.2_M3.rc1
+ * [new tag]               1.2_M4.rc1           -> 1.2_M4.rc1
+ * [new tag]               1.2_M4.rc2           -> 1.2_M4.rc2
+ * [new tag]               1.2_M4.rc3           -> 1.2_M4.rc3
+ * [new tag]               1.2_M4.rc3.1         -> 1.2_M4.rc3.1
+ * [new tag]               1.2_M4.rc3.2         -> 1.2_M4.rc3.2
+ * [new tag]               1.2_M4.rc4           -> 1.2_M4.rc4
+ * [new tag]               1.2_M4.rc4.0         -> 1.2_M4.rc4.0
+ * [new tag]               1.3                  -> 1.3
+ * [new tag]               1.3.1                -> 1.3.1
+ * [new tag]               1.3.2                -> 1.3.2
+ * [new tag]               1.3.2.final          -> 1.3.2.final
+ * [new tag]               1.3_M1.final         -> 1.3_M1.final
+ * [new tag]               1.3_M1.rc1           -> 1.3_M1.rc1
+ * [new tag]               1.3_M2.final         -> 1.3_M2.final
+ * [new tag]               1.3_M2.rc1           -> 1.3_M2.rc1
+ * [new tag]               1.3_M3.final         -> 1.3_M3.final
+ * [new tag]               1.3_M3.rc2           -> 1.3_M3.rc2
+ * [new tag]               1.3_M4.final         -> 1.3_M4.final
+ * [new tag]               1.3_M4.rc1           -> 1.3_M4.rc1
+ * [new tag]               1.3_M5.rc1           -> 1.3_M5.rc1
+ * [new tag]               1.3_M5.rc2           -> 1.3_M5.rc2
+ * [new tag]               1.3_M5.rc3           -> 1.3_M5.rc3
+ * [new tag]               1.3_M5.rc4           -> 1.3_M5.rc4
+ * [new tag]               1.4.1.rc1            -> 1.4.1.rc1
+ * [new tag]               1.4_M1.final         -> 1.4_M1.final
+ * [new tag]               1.4_M1.rc1           -> 1.4_M1.rc1
+ * [new tag]               1.4_M3.final         -> 1.4_M3.final
+ * [new tag]               1.4_M3.rc1           -> 1.4_M3.rc1
+ * [new tag]               1.4_M3.rc2           -> 1.4_M3.rc2
+ * [new tag]               1.4_M4.final         -> 1.4_M4.final
+ * [new tag]               1.4_M4.rc1           -> 1.4_M4.rc1
+ * [new tag]               1.4_M5.final         -> 1.4_M5.final
+ * [new tag]               1.4_M5.rc1           -> 1.4_M5.rc1
+ * [new tag]               1.4_M5.rc2           -> 1.4_M5.rc2
+ * [new tag]               1.4_M5.rc3           -> 1.4_M5.rc3
+ * [new tag]               1.4_M6.rc1           -> 1.4_M6.rc1
+ * [new tag]               1.5_M1.final         -> 1.5_M1.final
+ * [new tag]               1.5_M1.rc1           -> 1.5_M1.rc1
+ * [new tag]               1.5_M2.rc1           -> 1.5_M2.rc1
+ * [new tag]               1.5_M3               -> 1.5_M3
+ * [new tag]               1.5_M3.final         -> 1.5_M3.final
+ * [new tag]               1.5_M3.rc1           -> 1.5_M3.rc1
+ * [new tag]               1.5_M4               -> 1.5_M4
+ * [new tag]               1.5_M4.final         -> 1.5_M4.final
+ * [new tag]               1.5_M4.rc1           -> 1.5_M4.rc1
+ * [new tag]               1.5_M4.rc2           -> 1.5_M4.rc2
+ * [new tag]               1.5_M4.rc3           -> 1.5_M4.rc3
+ * [new tag]               1.5_M5.rc1           -> 1.5_M5.rc1
+ * [new tag]               1.5_M5.rc2           -> 1.5_M5.rc2
+ * [new tag]               1.5_M5.rc3           -> 1.5_M5.rc3
+ * [new tag]               1.5_M5.rc4           -> 1.5_M5.rc4
+ * [new tag]               1.5_M5.rc5           -> 1.5_M5.rc5
+ * [new tag]               1.5_M5.rc6           -> 1.5_M5.rc6
+ * [new tag]               1.5_M5.rc7           -> 1.5_M5.rc7
+ * [new tag]               1.5_M5.rc8           -> 1.5_M5.rc8
+ * [new tag]               1.6_M1               -> 1.6_M1
+ * [new tag]               1.6_M1.final         -> 1.6_M1.final
+ * [new tag]               1.6_M1.rc1           -> 1.6_M1.rc1
+ * [new tag]               1.6_M2               -> 1.6_M2
+ * [new tag]               1.6_M3               -> 1.6_M3
+ * [new tag]               1.6_M3.final         -> 1.6_M3.final
+ * [new tag]               1.6_M4               -> 1.6_M4
+ * [new tag]               1.7_M1               -> 1.7_M1
+ * [new tag]               1.7_M2               -> 1.7_M2
+ * [new tag]               1.7_M3               -> 1.7_M3
+ * [new tag]               1.8_M1               -> 1.8_M1
+ * [new tag]               1.8_M2               -> 1.8_M2
+ * [new tag]               1.8_M3               -> 1.8_M3
+ * [new tag]               1.9_M2               -> 1.9_M2
+ * [new tag]               2.1_M1               -> 2.1_M1
+ * [new tag]               2.2_M1               -> 2.2_M1
+ * [new tag]               2.2_M2               -> 2.2_M2
+ * [new tag]               2.2_M3               -> 2.2_M3
+ * [new tag]               2.3_M1               -> 2.3_M1
+ * [new tag]               2.3_M2               -> 2.3_M2
+ * [new tag]               2.3_M3               -> 2.3_M3
+ * [new tag]               2.4_M1               -> 2.4_M1
+ * [new tag]               2.4_M2               -> 2.4_M2
+ * [new tag]               2.4_M3               -> 2.4_M3
+ * [new tag]               2.5_M1               -> 2.5_M1
+ * [new tag]               2.5_M2               -> 2.5_M2
+ * [new tag]               2.5_M3               -> 2.5_M3
+ * [new tag]               2.6_M1               -> 2.6_M1
+ * [new tag]               2.6_M2               -> 2.6_M2
+ * [new tag]               2.6_M3               -> 2.6_M3
+ * [new tag]               2.7_M1               -> 2.7_M1
+ * [new tag]               2.7_M2               -> 2.7_M2
+ * [new tag]               2.7_M3               -> 2.7_M3
+ * [new tag]               2.8_M1               -> 2.8_M1
+ * [new tag]               2.8_M2               -> 2.8_M2
+ * [new tag]               2.8_M3               -> 2.8_M3
+ * [new tag]               3.1_M1               -> 3.1_M1
+ * [new tag]               3.1_M2               -> 3.1_M2
+ * [new tag]               3.1_M3               -> 3.1_M3
+ * [new tag]               3.2_M1               -> 3.2_M1
+ * [new tag]               3.2_M2               -> 3.2_M2
+ * [new tag]               3.2_M3               -> 3.2_M3
+ * [new tag]               3.3_M1               -> 3.3_M1
+ * [new tag]               3.3_M2               -> 3.3_M2
+ * [new tag]               3.3_M3               -> 3.3_M3
+ * [new tag]               3.4_M1               -> 3.4_M1
+ * [new tag]               3.4_M2               -> 3.4_M2
+ * [new tag]               3.4_M3               -> 3.4_M3
+ * [new tag]               3.5_M1               -> 3.5_M1
+ * [new tag]               3.5_M2               -> 3.5_M2
+ * [new tag]               3.5_M3               -> 3.5_M3
+ * [new tag]               4.1_M1               -> 4.1_M1
+ * [new tag]               4.1_M2               -> 4.1_M2
+ * [new tag]               4.1_M3               -> 4.1_M3
+ * [new tag]               4.2_M1               -> 4.2_M1
+ * [new tag]               4.2_M2               -> 4.2_M2
+ * [new tag]               4.2_M3               -> 4.2_M3
+ * [new tag]               4.3_M1               -> 4.3_M1
+ * [new tag]               4.3_M2               -> 4.3_M2
+ * [new tag]               4.3_M3               -> 4.3_M3
+ * [new tag]               5.0_M1               -> 5.0_M1
+ * [new tag]               5.0_M2               -> 5.0_M2
+ * [new tag]               bernard-1.0rc1       -> bernard-1.0rc1
+ * [new tag]               bernard-5.0          -> bernard-5.0
+ * [new tag]               bernard-5.0-alpha    -> bernard-5.0-alpha
+ * [new tag]               bernard-5.0.1        -> bernard-5.0.1
+ * [new tag]               bernard-5.0.2        -> bernard-5.0.2
+ * [new tag]               bernard-5.0.2+docs   -> bernard-5.0.2+docs
+ * [new tag]               bernard-5.0rc1       -> bernard-5.0rc1
+ * [new tag]               bernard-5.0rc2       -> bernard-5.0rc2
+ * [new tag]               blinky-3.0           -> blinky-3.0
+ * [new tag]               clyde-2.0            -> clyde-2.0
+ * [new tag]               daisy-11.0.0         -> daisy-11.0.0
+ * [new tag]               daisy-11.0.1         -> daisy-11.0.1
+ * [new tag]               daisy-11.0.2         -> daisy-11.0.2
+ * [new tag]               daisy-11.0.3         -> daisy-11.0.3
+ * [new tag]               danny-8.0            -> danny-8.0
+ * [new tag]               danny-8.0.1          -> danny-8.0.1
+ * [new tag]               danny-8.0.2          -> danny-8.0.2
+ * [new tag]               denzil-7.0           -> denzil-7.0
+ * [new tag]               denzil-7.0.0         -> denzil-7.0.0
+ * [new tag]               denzil-7.0.1         -> denzil-7.0.1
+ * [new tag]               denzil-7.0.1_rc2     -> denzil-7.0.1_rc2
+ * [new tag]               denzil-7.0.2         -> denzil-7.0.2
+ * [new tag]               dizzy-12.0.0         -> dizzy-12.0.0
+ * [new tag]               dizzy-12.0.1         -> dizzy-12.0.1
+ * [new tag]               dizzy-12.0.2         -> dizzy-12.0.2
+ * [new tag]               dizzy-12.0.3         -> dizzy-12.0.3
+ * [new tag]               dora-10.0.0          -> dora-10.0.0
+ * [new tag]               dora-10.0.0.final    -> dora-10.0.0.final
+ * [new tag]               dora-10.0.1          -> dora-10.0.1
+ * [new tag]               dora-10.0.1.final    -> dora-10.0.1.final
+ * [new tag]               dora-10.0.2          -> dora-10.0.2
+ * [new tag]               dora-10.0.3          -> dora-10.0.3
+ * [new tag]               dora-10.0.4          -> dora-10.0.4
+ * [new tag]               dunfell-23.0.0       -> dunfell-23.0.0
+ * [new tag]               dunfell-23.0.1       -> dunfell-23.0.1
+ * [new tag]               dunfell-23.0.10      -> dunfell-23.0.10
+ * [new tag]               dunfell-23.0.11      -> dunfell-23.0.11
+ * [new tag]               dunfell-23.0.12      -> dunfell-23.0.12
+ * [new tag]               dunfell-23.0.13      -> dunfell-23.0.13
+ * [new tag]               dunfell-23.0.14      -> dunfell-23.0.14
+ * [new tag]               dunfell-23.0.15      -> dunfell-23.0.15
+ * [new tag]               dunfell-23.0.16      -> dunfell-23.0.16
+ * [new tag]               dunfell-23.0.17      -> dunfell-23.0.17
+ * [new tag]               dunfell-23.0.18      -> dunfell-23.0.18
+ * [new tag]               dunfell-23.0.19      -> dunfell-23.0.19
+ * [new tag]               dunfell-23.0.2       -> dunfell-23.0.2
+ * [new tag]               dunfell-23.0.20      -> dunfell-23.0.20
+ * [new tag]               dunfell-23.0.21      -> dunfell-23.0.21
+ * [new tag]               dunfell-23.0.22      -> dunfell-23.0.22
+ * [new tag]               dunfell-23.0.23      -> dunfell-23.0.23
+ * [new tag]               dunfell-23.0.24      -> dunfell-23.0.24
+ * [new tag]               dunfell-23.0.25      -> dunfell-23.0.25
+ * [new tag]               dunfell-23.0.26      -> dunfell-23.0.26
+ * [new tag]               dunfell-23.0.27      -> dunfell-23.0.27
+ * [new tag]               dunfell-23.0.28      -> dunfell-23.0.28
+ * [new tag]               dunfell-23.0.29      -> dunfell-23.0.29
+ * [new tag]               dunfell-23.0.3       -> dunfell-23.0.3
+ * [new tag]               dunfell-23.0.30      -> dunfell-23.0.30
+ * [new tag]               dunfell-23.0.31      -> dunfell-23.0.31
+ * [new tag]               dunfell-23.0.32      -> dunfell-23.0.32
+ * [new tag]               dunfell-23.0.4       -> dunfell-23.0.4
+ * [new tag]               dunfell-23.0.5       -> dunfell-23.0.5
+ * [new tag]               dunfell-23.0.6       -> dunfell-23.0.6
+ * [new tag]               dunfell-23.0.7       -> dunfell-23.0.7
+ * [new tag]               dunfell-23.0.8       -> dunfell-23.0.8
+ * [new tag]               dunfell-23.0.9       -> dunfell-23.0.9
+ * [new tag]               dylan-9.0.0          -> dylan-9.0.0
+ * [new tag]               dylan-9.0.1          -> dylan-9.0.1
+ * [new tag]               dylan-9.0.1.rc1      -> dylan-9.0.1.rc1
+ * [new tag]               dylan-9.0.2          -> dylan-9.0.2
+ * [new tag]               dylan-9.0.2.rc1      -> dylan-9.0.2.rc1
+ * [new tag]               dylan-9.0.3          -> dylan-9.0.3
+ * [new tag]               dylan-9.0.4          -> dylan-9.0.4
+ * [new tag]               edison-6.0           -> edison-6.0
+ * [new tag]               edison-6.0.1         -> edison-6.0.1
+ * [new tag]               edison-6.0.1.final   -> edison-6.0.1.final
+ * [new tag]               edison-6.0.1.release -> edison-6.0.1.release
+ * [new tag]               edison-6.0.2         -> edison-6.0.2
+ * [new tag]               edison-6.0.2_rc1     -> edison-6.0.2_rc1
+ * [new tag]               fido-13.0.0          -> fido-13.0.0
+ * [new tag]               fido-13.0.1          -> fido-13.0.1
+ * [new tag]               fido-13.0.2          -> fido-13.0.2
+ * [new tag]               gatesgarth-24.0.0    -> gatesgarth-24.0.0
+ * [new tag]               gatesgarth-24.0.1    -> gatesgarth-24.0.1
+ * [new tag]               gatesgarth-24.0.2    -> gatesgarth-24.0.2
+ * [new tag]               gatesgarth-24.0.3    -> gatesgarth-24.0.3
+ * [new tag]               gatesgarth-24.0.4    -> gatesgarth-24.0.4
+ * [new tag]               green-3.3            -> green-3.3
+ * [new tag]               green-3.3.1          -> green-3.3.1
+ * [new tag]               hardknott-3.3        -> hardknott-3.3
+ * [new tag]               hardknott-3.3.1      -> hardknott-3.3.1
+ * [new tag]               hardknott-3.3.2      -> hardknott-3.3.2
+ * [new tag]               hardknott-3.3.3      -> hardknott-3.3.3
+ * [new tag]               hardknott-3.3.4      -> hardknott-3.3.4
+ * [new tag]               hardknott-3.3.5      -> hardknott-3.3.5
+ * [new tag]               hardknott-3.3.6      -> hardknott-3.3.6
+ * [new tag]               honister-3.4         -> honister-3.4
+ * [new tag]               honister-3.4.1       -> honister-3.4.1
+ * [new tag]               honister-3.4.2       -> honister-3.4.2
+ * [new tag]               honister-3.4.3       -> honister-3.4.3
+ * [new tag]               honister-3.4.4       -> honister-3.4.4
+ * [new tag]               inky-1.0             -> inky-1.0
+ * [new tag]               jethro-14.0.0        -> jethro-14.0.0
+ * [new tag]               jethro-14.0.1        -> jethro-14.0.1
+ * [new tag]               jethro-14.0.2        -> jethro-14.0.2
+ * [new tag]               jethro-14.0.3        -> jethro-14.0.3
+ * [new tag]               kirkstone-4.0        -> kirkstone-4.0
+ * [new tag]               kirkstone-4.0.1      -> kirkstone-4.0.1
+ * [new tag]               kirkstone-4.0.10     -> kirkstone-4.0.10
+ * [new tag]               kirkstone-4.0.11     -> kirkstone-4.0.11
+ * [new tag]               kirkstone-4.0.12     -> kirkstone-4.0.12
+ * [new tag]               kirkstone-4.0.13     -> kirkstone-4.0.13
+ * [new tag]               kirkstone-4.0.14     -> kirkstone-4.0.14
+ * [new tag]               kirkstone-4.0.15     -> kirkstone-4.0.15
+ * [new tag]               kirkstone-4.0.16     -> kirkstone-4.0.16
+ * [new tag]               kirkstone-4.0.2      -> kirkstone-4.0.2
+ * [new tag]               kirkstone-4.0.3      -> kirkstone-4.0.3
+ * [new tag]               kirkstone-4.0.4      -> kirkstone-4.0.4
+ * [new tag]               kirkstone-4.0.5      -> kirkstone-4.0.5
+ * [new tag]               kirkstone-4.0.6      -> kirkstone-4.0.6
+ * [new tag]               kirkstone-4.0.7      -> kirkstone-4.0.7
+ * [new tag]               kirkstone-4.0.8      -> kirkstone-4.0.8
+ * [new tag]               kirkstone-4.0.9      -> kirkstone-4.0.9
+ * [new tag]               krogoth-15.0.0       -> krogoth-15.0.0
+ * [new tag]               krogoth-15.0.1       -> krogoth-15.0.1
+ * [new tag]               krogoth-15.0.2       -> krogoth-15.0.2
+ * [new tag]               krogoth-15.0.3       -> krogoth-15.0.3
+ * [new tag]               langdale-4.1         -> langdale-4.1
+ * [new tag]               langdale-4.1.1       -> langdale-4.1.1
+ * [new tag]               langdale-4.1.2       -> langdale-4.1.2
+ * [new tag]               langdale-4.1.3       -> langdale-4.1.3
+ * [new tag]               langdale-4.1.4       -> langdale-4.1.4
+ * [new tag]               laverne-4.0          -> laverne-4.0
+ * [new tag]               laverne-4.0.1        -> laverne-4.0.1
+ * [new tag]               mickledore-4.2       -> mickledore-4.2
+ * [new tag]               mickledore-4.2.1     -> mickledore-4.2.1
+ * [new tag]               mickledore-4.2.2     -> mickledore-4.2.2
+ * [new tag]               mickledore-4.2.3     -> mickledore-4.2.3
+ * [new tag]               mickledore-4.2.4     -> mickledore-4.2.4
+ * [new tag]               morty-16.0.0         -> morty-16.0.0
+ * [new tag]               morty-16.0.1         -> morty-16.0.1
+ * [new tag]               morty-16.0.2         -> morty-16.0.2
+ * [new tag]               morty-16.0.3         -> morty-16.0.3
+ * [new tag]               morty-16.0.4         -> morty-16.0.4
+ * [new tag]               nanbield-4.3         -> nanbield-4.3
+ * [new tag]               nanbield-4.3.1       -> nanbield-4.3.1
+ * [new tag]               nanbield-4.3.2       -> nanbield-4.3.2
+ * [new tag]               nanbield-4.3.3       -> nanbield-4.3.3
+ * [new tag]               pinky-3.1            -> pinky-3.1
+ * [new tag]               pinky-3.1.1          -> pinky-3.1.1
+ * [new tag]               pinky-3.1.2          -> pinky-3.1.2
+ * [new tag]               poky-10.0.0.final    -> poky-10.0.0.final
+ * [new tag]               purple-3.2           -> purple-3.2
+ * [new tag]               purple-3.2.1         -> purple-3.2.1
+ * [new tag]               pyro-17.0.0          -> pyro-17.0.0
+ * [new tag]               pyro-17.0.1          -> pyro-17.0.1
+ * [new tag]               pyro-17.0.2          -> pyro-17.0.2
+ * [new tag]               pyro-17.0.3          -> pyro-17.0.3
+ * [new tag]               pyro-17.0.4          -> pyro-17.0.4
+ * [new tag]               rocko-18.0.0         -> rocko-18.0.0
+ * [new tag]               rocko-18.0.1         -> rocko-18.0.1
+ * [new tag]               rocko-18.0.2         -> rocko-18.0.2
+ * [new tag]               rocko-18.0.3         -> rocko-18.0.3
+ * [new tag]               rocko-18.0.4         -> rocko-18.0.4
+ * [new tag]               sumo-19.0.0          -> sumo-19.0.0
+ * [new tag]               sumo-19.0.1          -> sumo-19.0.1
+ * [new tag]               sumo-19.0.2          -> sumo-19.0.2
+ * [new tag]               sumo-19.0.3          -> sumo-19.0.3
+ * [new tag]               thud-20.0.0          -> thud-20.0.0
+ * [new tag]               thud-20.0.1          -> thud-20.0.1
+ * [new tag]               thud-20.0.2          -> thud-20.0.2
+ * [new tag]               thud-20.0.3          -> thud-20.0.3
+ * [new tag]               thud-20.0.4          -> thud-20.0.4
+ * [new tag]               toaster-dora-10.0.0  -> toaster-dora-10.0.0
+ * [new tag]               uninative-1.0        -> uninative-1.0
+ * [new tag]               uninative-1.3        -> uninative-1.3
+ * [new tag]               uninative-1.4        -> uninative-1.4
+ * [new tag]               uninative-1.5        -> uninative-1.5
+ * [new tag]               uninative-1.6        -> uninative-1.6
+ * [new tag]               uninative-1.7        -> uninative-1.7
+ * [new tag]               uninative-1.8        -> uninative-1.8
+ * [new tag]               uninative-1.9        -> uninative-1.9
+ * [new tag]               uninative-2.0        -> uninative-2.0
+ * [new tag]               uninative-2.1        -> uninative-2.1
+ * [new tag]               uninative-2.10       -> uninative-2.10
+ * [new tag]               uninative-2.11       -> uninative-2.11
+ * [new tag]               uninative-2.2        -> uninative-2.2
+ * [new tag]               uninative-2.3        -> uninative-2.3
+ * [new tag]               uninative-2.4        -> uninative-2.4
+ * [new tag]               uninative-2.5        -> uninative-2.5
+ * [new tag]               uninative-2.6        -> uninative-2.6
+ * [new tag]               uninative-2.7        -> uninative-2.7
+ * [new tag]               uninative-2.8        -> uninative-2.8
+ * [new tag]               uninative-2.9        -> uninative-2.9
+ * [new tag]               uninative-3.0        -> uninative-3.0
+ * [new tag]               uninative-3.1        -> uninative-3.1
+ * [new tag]               uninative-3.2        -> uninative-3.2
+ * [new tag]               uninative-3.5        -> uninative-3.5
+ * [new tag]               uninative-3.6        -> uninative-3.6
+ * [new tag]               uninative-3.7        -> uninative-3.7
+ * [new tag]               warrior-21.0.0       -> warrior-21.0.0
+ * [new tag]               warrior-21.0.1       -> warrior-21.0.1
+ * [new tag]               warrior-21.0.2       -> warrior-21.0.2
+ * [new tag]               warrior-21.0.3       -> warrior-21.0.3
+ * [new tag]               warrior-21.0.4       -> warrior-21.0.4
+ * [new tag]               yocot-1.4.2          -> yocot-1.4.2
+ * [new tag]               yocto-1.4.1          -> yocto-1.4.1
+ * [new tag]               yocto-1.4.2          -> yocto-1.4.2
+ * [new tag]               yocto-1.4.2.rc1      -> yocto-1.4.2.rc1
+ * [new tag]               yocto-1.4.3          -> yocto-1.4.3
+ * [new tag]               yocto-1.4.4          -> yocto-1.4.4
+ * [new tag]               yocto-1.5            -> yocto-1.5
+ * [new tag]               yocto-1.5.1          -> yocto-1.5.1
+ * [new tag]               yocto-1.5.1.final    -> yocto-1.5.1.final
+ * [new tag]               yocto-1.5.2          -> yocto-1.5.2
+ * [new tag]               yocto-1.5.3          -> yocto-1.5.3
+ * [new tag]               yocto-1.5.4          -> yocto-1.5.4
+ * [new tag]               yocto-1.5.final      -> yocto-1.5.final
+ * [new tag]               yocto-1.5_M5.rc2     -> yocto-1.5_M5.rc2
+ * [new tag]               yocto-1.6            -> yocto-1.6
+ * [new tag]               yocto-1.6.1          -> yocto-1.6.1
+ * [new tag]               yocto-1.6.2          -> yocto-1.6.2
+ * [new tag]               yocto-1.6.3          -> yocto-1.6.3
+ * [new tag]               yocto-1.7            -> yocto-1.7
+ * [new tag]               yocto-1.7.1          -> yocto-1.7.1
+ * [new tag]               yocto-1.7.2          -> yocto-1.7.2
+ * [new tag]               yocto-1.7.3          -> yocto-1.7.3
+ * [new tag]               yocto-1.8            -> yocto-1.8
+ * [new tag]               yocto-1.8.1          -> yocto-1.8.1
+ * [new tag]               yocto-1.8.2          -> yocto-1.8.2
+ * [new tag]               yocto-1.9_M1         -> yocto-1.9_M1
+ * [new tag]               yocto-2.0            -> yocto-2.0
+ * [new tag]               yocto-2.0.1          -> yocto-2.0.1
+ * [new tag]               yocto-2.0.2          -> yocto-2.0.2
+ * [new tag]               yocto-2.0.3          -> yocto-2.0.3
+ * [new tag]               yocto-2.1            -> yocto-2.1
+ * [new tag]               yocto-2.1.1          -> yocto-2.1.1
+ * [new tag]               yocto-2.1.2          -> yocto-2.1.2
+ * [new tag]               yocto-2.1.3          -> yocto-2.1.3
+ * [new tag]               yocto-2.2            -> yocto-2.2
+ * [new tag]               yocto-2.2.1          -> yocto-2.2.1
+ * [new tag]               yocto-2.2.2          -> yocto-2.2.2
+ * [new tag]               yocto-2.2.3          -> yocto-2.2.3
+ * [new tag]               yocto-2.2.4          -> yocto-2.2.4
+ * [new tag]               yocto-2.3            -> yocto-2.3
+ * [new tag]               yocto-2.3.1          -> yocto-2.3.1
+ * [new tag]               yocto-2.3.2          -> yocto-2.3.2
+ * [new tag]               yocto-2.3.3          -> yocto-2.3.3
+ * [new tag]               yocto-2.3.4          -> yocto-2.3.4
+ * [new tag]               yocto-2.4            -> yocto-2.4
+ * [new tag]               yocto-2.4.1          -> yocto-2.4.1
+ * [new tag]               yocto-2.4.2          -> yocto-2.4.2
+ * [new tag]               yocto-2.4.3          -> yocto-2.4.3
+ * [new tag]               yocto-2.4.4          -> yocto-2.4.4
+ * [new tag]               yocto-2.5            -> yocto-2.5
+ * [new tag]               yocto-2.5.1          -> yocto-2.5.1
+ * [new tag]               yocto-2.5.2          -> yocto-2.5.2
+ * [new tag]               yocto-2.5.3          -> yocto-2.5.3
+ * [new tag]               yocto-2.6            -> yocto-2.6
+ * [new tag]               yocto-2.6.1          -> yocto-2.6.1
+ * [new tag]               yocto-2.6.2          -> yocto-2.6.2
+ * [new tag]               yocto-2.6.3          -> yocto-2.6.3
+ * [new tag]               yocto-2.6.4          -> yocto-2.6.4
+ * [new tag]               yocto-2.7            -> yocto-2.7
+ * [new tag]               yocto-2.7.1          -> yocto-2.7.1
+ * [new tag]               yocto-2.7.2          -> yocto-2.7.2
+ * [new tag]               yocto-2.7.3          -> yocto-2.7.3
+ * [new tag]               yocto-2.7.4          -> yocto-2.7.4
+ * [new tag]               yocto-3.0            -> yocto-3.0
+ * [new tag]               yocto-3.0.1          -> yocto-3.0.1
+ * [new tag]               yocto-3.0.2          -> yocto-3.0.2
+ * [new tag]               yocto-3.0.3          -> yocto-3.0.3
+ * [new tag]               yocto-3.0.4          -> yocto-3.0.4
+ * [new tag]               yocto-3.1            -> yocto-3.1
+ * [new tag]               yocto-3.1.1          -> yocto-3.1.1
+ * [new tag]               yocto-3.1.10         -> yocto-3.1.10
+ * [new tag]               yocto-3.1.11         -> yocto-3.1.11
+ * [new tag]               yocto-3.1.12         -> yocto-3.1.12
+ * [new tag]               yocto-3.1.13         -> yocto-3.1.13
+ * [new tag]               yocto-3.1.14         -> yocto-3.1.14
+ * [new tag]               yocto-3.1.15         -> yocto-3.1.15
+ * [new tag]               yocto-3.1.16         -> yocto-3.1.16
+ * [new tag]               yocto-3.1.17         -> yocto-3.1.17
+ * [new tag]               yocto-3.1.18         -> yocto-3.1.18
+ * [new tag]               yocto-3.1.19         -> yocto-3.1.19
+ * [new tag]               yocto-3.1.2          -> yocto-3.1.2
+ * [new tag]               yocto-3.1.20         -> yocto-3.1.20
+ * [new tag]               yocto-3.1.21         -> yocto-3.1.21
+ * [new tag]               yocto-3.1.22         -> yocto-3.1.22
+ * [new tag]               yocto-3.1.23         -> yocto-3.1.23
+ * [new tag]               yocto-3.1.24         -> yocto-3.1.24
+ * [new tag]               yocto-3.1.25         -> yocto-3.1.25
+ * [new tag]               yocto-3.1.26         -> yocto-3.1.26
+ * [new tag]               yocto-3.1.27         -> yocto-3.1.27
+ * [new tag]               yocto-3.1.28         -> yocto-3.1.28
+ * [new tag]               yocto-3.1.29         -> yocto-3.1.29
+ * [new tag]               yocto-3.1.3          -> yocto-3.1.3
+ * [new tag]               yocto-3.1.30         -> yocto-3.1.30
+ * [new tag]               yocto-3.1.31         -> yocto-3.1.31
+ * [new tag]               yocto-3.1.32         -> yocto-3.1.32
+ * [new tag]               yocto-3.1.4          -> yocto-3.1.4
+ * [new tag]               yocto-3.1.5          -> yocto-3.1.5
+ * [new tag]               yocto-3.1.6          -> yocto-3.1.6
+ * [new tag]               yocto-3.1.7          -> yocto-3.1.7
+ * [new tag]               yocto-3.1.8          -> yocto-3.1.8
+ * [new tag]               yocto-3.1.9          -> yocto-3.1.9
+ * [new tag]               yocto-3.2            -> yocto-3.2
+ * [new tag]               yocto-3.2.1          -> yocto-3.2.1
+ * [new tag]               yocto-3.2.2          -> yocto-3.2.2
+ * [new tag]               yocto-3.2.3          -> yocto-3.2.3
+ * [new tag]               yocto-3.2.4          -> yocto-3.2.4
+ * [new tag]               yocto-3.3            -> yocto-3.3
+ * [new tag]               yocto-3.3.1          -> yocto-3.3.1
+ * [new tag]               yocto-3.3.2          -> yocto-3.3.2
+ * [new tag]               yocto-3.3.3          -> yocto-3.3.3
+ * [new tag]               yocto-3.3.4          -> yocto-3.3.4
+ * [new tag]               yocto-3.3.5          -> yocto-3.3.5
+ * [new tag]               yocto-3.3.6          -> yocto-3.3.6
+ * [new tag]               yocto-3.4            -> yocto-3.4
+ * [new tag]               yocto-3.4.1          -> yocto-3.4.1
+ * [new tag]               yocto-3.4.2          -> yocto-3.4.2
+ * [new tag]               yocto-3.4.3          -> yocto-3.4.3
+ * [new tag]               yocto-3.4.4          -> yocto-3.4.4
+ * [new tag]               yocto-4.0            -> yocto-4.0
+ * [new tag]               yocto-4.0.1          -> yocto-4.0.1
+ * [new tag]               yocto-4.0.10         -> yocto-4.0.10
+ * [new tag]               yocto-4.0.11         -> yocto-4.0.11
+ * [new tag]               yocto-4.0.12         -> yocto-4.0.12
+ * [new tag]               yocto-4.0.13         -> yocto-4.0.13
+ * [new tag]               yocto-4.0.14         -> yocto-4.0.14
+ * [new tag]               yocto-4.0.15         -> yocto-4.0.15
+ * [new tag]               yocto-4.0.16         -> yocto-4.0.16
+ * [new tag]               yocto-4.0.2          -> yocto-4.0.2
+ * [new tag]               yocto-4.0.3          -> yocto-4.0.3
+ * [new tag]               yocto-4.0.4          -> yocto-4.0.4
+ * [new tag]               yocto-4.0.5          -> yocto-4.0.5
+ * [new tag]               yocto-4.0.6          -> yocto-4.0.6
+ * [new tag]               yocto-4.0.7          -> yocto-4.0.7
+ * [new tag]               yocto-4.0.8          -> yocto-4.0.8
+ * [new tag]               yocto-4.0.9          -> yocto-4.0.9
+ * [new tag]               yocto-4.1            -> yocto-4.1
+ * [new tag]               yocto-4.1.1          -> yocto-4.1.1
+ * [new tag]               yocto-4.1.2          -> yocto-4.1.2
+ * [new tag]               yocto-4.1.3          -> yocto-4.1.3
+ * [new tag]               yocto-4.1.4          -> yocto-4.1.4
+ * [new tag]               yocto-4.2            -> yocto-4.2
+ * [new tag]               yocto-4.2.1          -> yocto-4.2.1
+ * [new tag]               yocto-4.2.2          -> yocto-4.2.2
+ * [new tag]               yocto-4.2.3          -> yocto-4.2.3
+ * [new tag]               yocto-4.2.4          -> yocto-4.2.4
+ * [new tag]               yocto-4.3            -> yocto-4.3
+ * [new tag]               yocto-4.3.1          -> yocto-4.3.1
+ * [new tag]               yocto-4.3.2          -> yocto-4.3.2
+ * [new tag]               yocto-4.3.3          -> yocto-4.3.3
+ * [new tag]               yocto_1.5_M5.rc8     -> yocto_1.5_M5.rc8
+ * [new tag]               zeus-22.0.0          -> zeus-22.0.0
+ * [new tag]               zeus-22.0.1          -> zeus-22.0.1
+ * [new tag]               zeus-22.0.2          -> zeus-22.0.2
+ * [new tag]               zeus-22.0.3          -> zeus-22.0.3
+ * [new tag]               zeus-22.0.4          -> zeus-22.0.4
+Fetching projects: 100% (7/7), done.
+Updating files: 100% (3828/3828), done.
+Checking out projects: 100% (7/7), done.
+
+BSP has phyLinux API Version 2
+copy /home/mohan/wega_yocto/sources/meta-phytec/conf/bblayers.conf.sample to /home/mohan/wega_yocto/tools/templateconf
+copy /home/mohan/wega_yocto/sources/meta-phytec/conf/local.conf.sample to /home/mohan/wega_yocto/tools/templateconf
+copy /home/mohan/wega_yocto/sources/meta-phytec/conf/conf-notes.txt to /home/mohan/wega_yocto/tools/templateconf
+('Layers to add:', set(['meta-qt5', 'meta-phytec', 'meta-rauc', 'meta-gstreamer1.0', 'meta-yogurt']))
+No site.conf found on host.
+*********************************************************************
+* Please choose one of the available builds:
+*
+no:          machine: description and article number
+                      distro: supported yocto distribution
+                      target: supported build target
+
+ 1: phyboard-regor-am335x-1: PHYTEC phyBOARD-REGOR AM335x 512MiB RAM
+                      512MiB NAND, 8MiB SPI flash
+                      PB-01802-001.A5
+                      distro: yogurt-rt
+                      target: phytec-headless-image
+ 2: phyboard-wega-am335x-1: PHYTEC phyBOARD-WEGA AM335x 256MiB RAM
+                      128MiB NAND flash, PEB-AV-01
+                      PB-00802-0101C.A1, PB-00802-0200C.A2
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 3: phyboard-wega-am335x-2: PHYTEC phyBOARD-WEGA AM335x 256MiB RAM
+                      128MiB NAND flash, PEB-AV-02
+                      PB-00802-008.A1, PB-00802-010.A0
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 4: phyboard-wega-am335x-3: PHYTEC phyBOARD-WEGA AM335x 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PEB-AV-01
+                      PB-00802-310I.A2
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 5: phyboard-wega-r2-am335x-1: PHYTEC phyBOARD-WEGA R2 AM335x 256MiB RAM
+                      256MiB NAND flash, PEB-AV-01
+                      PB-00814-001.A0, PB-00814-002.A0
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+ 6: phycore-am335x-1: PHYTEC phyCORE-AM335x 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PCM-953 (Kit)
+                      KPCM-051-SYS-LINUX, PCM-051-12102F0C.A3
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+ 7: phycore-am335x-3: PHYTEC phyCORE-AM335x 256MiB RAM
+                      256MiB/512MiB NAND flash, PCM-953
+                      PCM-051-01041E0I.A2
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+ 8: phycore-am335x-4: PHYTEC phyCORE-AM335x 256MiB RAM
+                      128MiB NAND flash, PCM-953
+                      PCM-051-0005160C.A2, PCM-051-0005160I.A2
+                      distro: yogurt
+                      target: phytec-headless-image
+ 9: phycore-am335x-5: PHYTEC phyCORE-AM335x 256MiB RAM
+                      128MiB NAND flash, PCM-953
+                      PCM-051-00051F0I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+10: phycore-am335x-7: PHYTEC phyCORE-AM335x 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PCM-953 (WiFi jumpered)
+                      PCM-051-12102F0C.A3
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+11: phycore-emmc-am335x-1: PHYTEC phyCORE-AM335x EMMC 1024MiB RAM
+                      4GiB EMMC flash, 8MiB SPI
+                      PCM-062-40143F10I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+                      target: phytec-qt5demo-image
+12: phycore-r2-am335x-1: PHYTEC phyCORE-AM335x R2 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI, PCM-953 (Kit), PM
+                      PCM-060-12102F04I.A0, KPCM-060-SYS-LIN.A0
+                      distro: yogurt
+                      target: -c populate_sdk phytec-qt5demo-image
+                      target: phytec-qt5demo-image
+13: phycore-r2-am335x-2: PHYTEC phyCORE-AM335x R2 256MiB RAM
+                      256MiB NAND flash
+                      PCM-060-01051E10I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+14: phycore-r2-am335x-3: PHYTEC phyCORE-AM335x R2 512MiB RAM
+                      512MiB NAND flash, 8MiB SPI flash, PCM-953
+                      PCM-060-12142F10I.A1
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+15: phycore-r2-am335x-4: PHYTEC phyCORE-AM335x R2 512MiB RAM
+                      512MiB NAND flash, PCM-953
+                      PCM-060-12052F10I.A1
+                      distro: yogurt
+                      target: phytec-headless-image
+16: phycore-r2-am335x-5: PHYTEC phyCORE-AM335x R2 1GiB RAM
+                      1GiB NAND flash, 8MiB SPI flash, PCM-953
+                      PCM-060-43102F10I.A1
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+17: phycore-r2-am335x-6: PHYTEC phyCORE-AM335x R2 1GiB RAM
+                      1GiB NAND flash, PCM-953
+                      PCM-060-43002F10I.A0
+                      distro: yogurt
+                      target: phytec-qt5demo-image
+$ 4
+add TARGET phytec-headless-image to conf-notes.txt
+add TARGET phytec-qt5demo-image to conf-notes.txt
+set MACHINE in local.conf to phyboard-wega-am335x-3
+set DISTRO in local.conf to yogurt
+
+Before you start your work, please check your build/conf/local.conf for
+host specific configuration. Check the documentation especially for:
+   - proxy settings
+   - DL_DIR
+   - SSTATE_DIR
+
+To set up your shell environment for some Yocto work, you have to type this
+command, including the 'dot':
+
+    $ . sources/poky/oe-init-build-env
+
+
+mohan@mohan:~/wega_yocto$ source sources/poky/oe-init-build-env 
+
+██████╗ ██╗  ██╗██╗   ██╗████████╗███████╗ ██████╗
+██╔══██╗██║  ██║╚██╗ ██╔╝╚══██╔══╝██╔════╝██╔════╝
+██████╔╝███████║ ╚████╔╝    ██║   █████╗  ██║     
+██╔═══╝ ██╔══██║  ╚██╔╝     ██║   ██╔══╝  ██║     
+██║     ██║  ██║   ██║      ██║   ███████╗╚██████╗
+╚═╝     ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝
+
+
+Welcome to the PHYTEC BSP-Yocto buildsystem.
+
+Before building for the first time, you should take a look in the main
+configuration file 'conf/local.conf'. There you can tweak the build system
+settings and license configuration. For example you may have to accept the
+Freescale/NXP GPU and VPU licence for an i.MX6 board.
+
+Tested build target for this build configuration is:
+
+   $ bitbake phytec-headless-image
+   $ bitbake phytec-qt5demo-image
+
+mohan@mohan:~/wega_yocto/build$ cd conf/
+mohan@mohan:~/wega_yocto/build/conf$ vi local.conf 
+mohan@mohan:~/wega_yocto/build/conf$ cd ..   
+mohan@mohan:~/wega_yocto/build$ cd ..
+mohan@mohan:~/wega_yocto$ bitbake -c compile linux-mainline
+/home/mohan/wega_yocto/sources/poky/bitbake/lib/bb/fetch2/clearcase.py:159: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if command is 'mkview':
+/home/mohan/wega_yocto/sources/poky/bitbake/lib/bb/fetch2/clearcase.py:166: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  elif command is 'rmview':
+/home/mohan/wega_yocto/sources/poky/bitbake/lib/bb/fetch2/clearcase.py:170: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  elif command is 'setcs':
+WARNING: Host distribution "ubuntu-20.04" has not been validated with this version of the build system; you may possibly experience unexpected failures. It is recommended that you use a tested distribution.
+Parsing recipes: 100% |#####################################################################################################################################################################| Time: 0:02:02
+Parsing of 2294 .bb files complete (0 cached, 2294 parsed). 3184 targets, 361 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.38.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-20.04"
+TARGET_SYS           = "arm-phytec-linux-gnueabi"
+MACHINE              = "phyboard-wega-am335x-1"
+DISTRO               = "yogurt"
+DISTRO_VERSION       = "BSP-Yocto-AM335x-PD19.1.1"
+TUNE_FEATURES        = "arm armv7a vfp thumb neon callconvention-hard cortexa8"
+TARGET_FPU           = "hard"
+meta                 
+meta-poky            = "HEAD:5ddf7fff992b065ee512878d2fe65f3e35d818cf"
+meta-oe              
+meta-networking      
+meta-python          
+meta-multimedia      = "HEAD:8760facba1bceb299b3613b8955621ddaa3d4c3f"
+meta-gstreamer1.0    = "HEAD:59dfad71768cf53f7863cbe53432cbb77a25a6ee"
+meta-phytec          = "HEAD:c8814fbd94268b3029601d0100a57a39b0f176a8"
+meta-qt5             = "HEAD:d4e7f73d04e8448d326b6f89908701e304e37d65"
+meta-rauc            = "HEAD:09cc4d298e84257cc5fc30ea8721090cdae4a315"
+meta-yogurt          = "HEAD:1e29c99158816b8dc30d5de1486a5c1ea5849e2f"
+
+NOTE: Fetching uninative binary shim from http://downloads.yoctoproject.org/releases/uninative/2.4/x86_64-nativesdk-libc.tar.bz2;sha256sum=06f91685b782f2ccfedf3070b3ba0fe4a5ba2f0766dad5c9d1642dccf95accd0
+WARNING: Your host glibc verson (2.31) is newer than that in uninative (2.29). Disabling uninative so that sstate is not corrupted.
+Initialising tasks: 100% |##################################################################################################################################################################| Time: 0:00:00
+NOTE: Executing SetScene Tasks
+NOTE: Executing RunQueue Tasks
+NOTE: Tasks Summary: Attempted 341 tasks of which 0 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+
+Summary: There were 2 WARNING messages shown.
+mohan@mohan:~/wega_yocto$ ls
+HOWTO  ReleaseNotes  bitbake-cookerdaemon.log  build  phyLinux  sources  tools
+mohan@mohan:~/wega_yocto$ source sources/poky/oe-init-build-env 
+
+██████╗ ██╗  ██╗██╗   ██╗████████╗███████╗ ██████╗
+██╔══██╗██║  ██║╚██╗ ██╔╝╚══██╔══╝██╔════╝██╔════╝
+██████╔╝███████║ ╚████╔╝    ██║   █████╗  ██║     
+██╔═══╝ ██╔══██║  ╚██╔╝     ██║   ██╔══╝  ██║     
+██║     ██║  ██║   ██║      ██║   ███████╗╚██████╗
+╚═╝     ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝
+
+
+Welcome to the PHYTEC BSP-Yocto buildsystem.
+
+Before building for the first time, you should take a look in the main
+configuration file 'conf/local.conf'. There you can tweak the build system
+settings and license configuration. For example you may have to accept the
+Freescale/NXP GPU and VPU licence for an i.MX6 board.
+
+Tested build target for this build configuration is:
+
+   $ bitbake phytec-headless-image
+   $ bitbake phytec-qt5demo-image
+
+mohan@mohan:~/wega_yocto/build$ ls
+buildhistory  cache  conf  downloads  sstate-cache  tmp
+mohan@mohan:~/wega_yocto/build$ cd tmp/work
+mohan@mohan:~/wega_yocto/build/tmp/work$ ls
+cortexa8hf-neon-phytec-linux-gnueabi  phyboard_wega_am335x_1-phytec-linux-gnueabi  x86_64-linux
+mohan@mohan:~/wega_yocto/build/tmp/work$ cd phyboard_wega_am335x_1-phytec-linux-gnueabi/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi$ ls
+linux-mainline
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi$ cd linux-mainline/4.14.78-phy6-r0.0/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0$ ls
+build  debugging.cfg  git  mtd-tests.cfg  preempt_voluntary.cfg  recipe-sysroot  recipe-sysroot-native  temp
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0$ cd git/arch/arm/boot/dts/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/git/arch/arm/boot/dts$ ls
+Makefile                                         exynos3250-pinctrl.dtsi                        keystone-k2hk-evm.dts                        rk3288-firefly.dts
+aks-cdu.dts                                      exynos3250-rinato.dts                          keystone-k2hk-netcp.dtsi                     rk3288-firefly.dtsi
+alphascale-asm9260-devkit.dts                    exynos3250.dtsi                                keystone-k2hk.dtsi                           rk3288-miqi.dts
+alphascale-asm9260.dtsi                          exynos4-cpu-thermal.dtsi                       keystone-k2l-clocks.dtsi                     rk3288-phycore-rdk.dts
+alpine-db.dts                                    exynos4.dtsi                                   keystone-k2l-evm.dts                         rk3288-phycore-som.dtsi
+alpine.dtsi                                      exynos4210-origen.dts                          keystone-k2l-netcp.dtsi                      rk3288-popmetal.dts
+am335x-baltos-ir2110.dts                         exynos4210-pinctrl.dtsi                        keystone-k2l.dtsi                            rk3288-r89.dts
+am335x-baltos-ir3220.dts                         exynos4210-smdkv310.dts                        keystone.dtsi                                rk3288-rock2-som.dtsi
+am335x-baltos-ir5221.dts                         exynos4210-trats.dts                           kirkwood-6192.dtsi                           rk3288-rock2-square.dts
+am335x-baltos-leds.dtsi                          exynos4210-universal_c210.dts                  kirkwood-6281.dtsi                           rk3288-tinker.dts
+am335x-baltos.dtsi                               exynos4210.dtsi                                kirkwood-6282.dtsi                           rk3288-veyron-analog-audio.dtsi
+am335x-base0033.dts                              exynos4412-itop-elite.dts                      kirkwood-98dx4122.dtsi                       rk3288-veyron-brain.dts
+am335x-bone-common.dtsi                          exynos4412-itop-scp-core.dtsi                  kirkwood-b3.dts                              rk3288-veyron-chromebook.dtsi
+am335x-bone.dts                                  exynos4412-odroid-common.dtsi                  kirkwood-blackarmor-nas220.dts               rk3288-veyron-jaq.dts
+am335x-boneblack-common.dtsi                     exynos4412-odroidu3.dts                        kirkwood-cloudbox.dts                        rk3288-veyron-jerry.dts
+am335x-boneblack-wireless.dts                    exynos4412-odroidx.dts                         kirkwood-d2net.dts                           rk3288-veyron-mickey.dts
+am335x-boneblack.dts                             exynos4412-odroidx2.dts                        kirkwood-db-88f6281.dts                      rk3288-veyron-minnie.dts
+am335x-boneblue.dts                              exynos4412-origen.dts                          kirkwood-db-88f6282.dts                      rk3288-veyron-pinky.dts
+am335x-bonegreen-common.dtsi                     exynos4412-pinctrl.dtsi                        kirkwood-db.dtsi                             rk3288-veyron-sdmmc.dtsi
+am335x-bonegreen-wireless.dts                    exynos4412-ppmu-common.dtsi                    kirkwood-dir665.dts                          rk3288-veyron-speedy.dts
+am335x-bonegreen.dts                             exynos4412-prime.dtsi                          kirkwood-dns320.dts                          rk3288-veyron.dtsi
+am335x-chiliboard.dts                            exynos4412-smdk4412.dts                        kirkwood-dns325.dts                          rk3288.dtsi
+am335x-chilisom.dtsi                             exynos4412-tiny4412.dts                        kirkwood-dnskw.dtsi                          rk3xxx.dtsi
+am335x-cm-t335.dts                               exynos4412-tmu-sensor-conf.dtsi                kirkwood-dockstar.dts                        rv1108-evb.dts
+am335x-evm.dts                                   exynos4412-trats2.dts                          kirkwood-dreamplug.dts                       rv1108.dtsi
+am335x-evmsk.dts                                 exynos4412.dtsi                                kirkwood-ds109.dts                           s3c2416-pinctrl.dtsi
+am335x-icev2.dts                                 exynos5.dtsi                                   kirkwood-ds110jv10.dts                       s3c2416-smdk2416.dts
+am335x-igep0033.dtsi                             exynos5250-arndale.dts                         kirkwood-ds111.dts                           s3c2416.dtsi
+am335x-lxm.dts                                   exynos5250-pinctrl.dtsi                        kirkwood-ds112.dts                           s3c24xx.dtsi
+am335x-moxa-uc-8100-me-t.dts                     exynos5250-smdk5250.dts                        kirkwood-ds209.dts                           s3c6400.dtsi
+am335x-nano.dts                                  exynos5250-snow-common.dtsi                    kirkwood-ds210.dts                           s3c6410-mini6410.dts
+am335x-pcm-953-emmc-wifi.dtsi                    exynos5250-snow-rev5.dts                       kirkwood-ds212.dts                           s3c6410-smdk6410.dts
+am335x-pcm-953-emmc.dtsi                         exynos5250-snow.dts                            kirkwood-ds212j.dts                          s3c6410.dtsi
+am335x-pcm-953-wifi.dtsi                         exynos5250-spring.dts                          kirkwood-ds409.dts                           s3c64xx-pinctrl.dtsi
+am335x-pcm-953.dtsi                              exynos5250.dtsi                                kirkwood-ds409slim.dts                       s3c64xx.dtsi
+am335x-pcm-958.dtsi                              exynos5260-pinctrl.dtsi                        kirkwood-ds411.dts                           s5pv210-aquila.dts
+am335x-pepper.dts                                exynos5260-xyref5260.dts                       kirkwood-ds411j.dts                          s5pv210-goni.dts
+am335x-phycore-emmc-eeprom-rtc-spi.dts           exynos5260.dtsi                                kirkwood-ds411slim.dts                       s5pv210-pinctrl.dtsi
+am335x-phycore-nand-eeprom-rtc-spi-tmp.dts       exynos5410-odroidxu.dts                        kirkwood-goflexnet.dts                       s5pv210-smdkc110.dts
+am335x-phycore-nand-eeprom-rtc.dts               exynos5410-pinctrl.dtsi                        kirkwood-guruplug-server-plus.dts            s5pv210-smdkv210.dts
+am335x-phycore-nand-eeprom.dts                   exynos5410-smdk5410.dts                        kirkwood-ib62x0.dts                          s5pv210-torbreck.dts
+am335x-phycore-nand-none.dts                     exynos5410.dtsi                                kirkwood-iconnect.dts                        s5pv210.dtsi
+am335x-phycore-rdk-wifi.dts                      exynos5420-arndale-octa.dts                    kirkwood-iomega_ix2_200.dts                  sama5d2-pinfunc.h
+am335x-phycore-rdk.dts                           exynos5420-cpus.dtsi                           kirkwood-is2.dts                             sama5d2.dtsi
+am335x-phycore-som-emmc-eeprom-rtc-spi-tmp.dtsi  exynos5420-peach-pit.dts                       kirkwood-km_common.dtsi                      sama5d3.dtsi
+am335x-phycore-som-emmc-eeprom-rtc-spi.dtsi      exynos5420-pinctrl.dtsi                        kirkwood-km_fixedeth.dts                     sama5d31.dtsi
+am335x-phycore-som-emmc-eeprom-rtc-tmp.dtsi      exynos5420-smdk5420.dts                        kirkwood-km_kirkwood.dts                     sama5d31ek.dts
+am335x-phycore-som-emmc-eeprom-rtc.dtsi          exynos5420-tmu-sensor-conf.dtsi                kirkwood-laplug.dts                          sama5d33.dtsi
+am335x-phycore-som-emmc-eeprom-spi-tmp.dtsi      exynos5420-trip-points.dtsi                    kirkwood-linkstation-6282.dtsi               sama5d33ek.dts
+am335x-phycore-som-emmc-eeprom-spi.dtsi          exynos5420.dtsi                                kirkwood-linkstation-duo-6281.dtsi           sama5d34.dtsi
+am335x-phycore-som-emmc-eeprom-tmp.dtsi          exynos5422-cpus.dtsi                           kirkwood-linkstation-lsqvl.dts               sama5d34ek.dts
+am335x-phycore-som-emmc-eeprom.dtsi              exynos5422-odroidxu3-audio.dtsi                kirkwood-linkstation-lsvl.dts                sama5d35.dtsi
+am335x-phycore-som-emmc-rtc-spi.dtsi             exynos5422-odroidxu3-common.dtsi               kirkwood-linkstation-lswsxl.dts              sama5d35ek.dts
+am335x-phycore-som-emmc-rtc.dtsi                 exynos5422-odroidxu3-lite.dts                  kirkwood-linkstation-lswvl.dts               sama5d36.dtsi
+am335x-phycore-som-emmc-spi.dtsi                 exynos5422-odroidxu3.dts                       kirkwood-linkstation-lswxl.dts               sama5d36ek.dts
+am335x-phycore-som-emmc.dtsi                     exynos5422-odroidxu4.dts                       kirkwood-linkstation.dtsi                    sama5d36ek_cmp.dts
+am335x-phycore-som-nand-eeprom-rtc-spi-tmp.dtsi  exynos5440-sd5v1.dts                           kirkwood-linksys-viper.dts                   sama5d3_can.dtsi
+am335x-phycore-som-nand-eeprom-rtc-spi.dtsi      exynos5440-ssdk5440.dts                        kirkwood-lschlv2.dts                         sama5d3_emac.dtsi
+am335x-phycore-som-nand-eeprom-rtc-tmp.dtsi      exynos5440-tmu-sensor-conf.dtsi                kirkwood-lsxhl.dts                           sama5d3_gmac.dtsi
+am335x-phycore-som-nand-eeprom-rtc.dtsi          exynos5440-trip-points.dtsi                    kirkwood-lsxl.dtsi                           sama5d3_lcd.dtsi
+am335x-phycore-som-nand-eeprom-spi-tmp.dtsi      exynos5440.dtsi                                kirkwood-mplcec4.dts                         sama5d3_mci2.dtsi
+am335x-phycore-som-nand-eeprom-spi.dtsi          exynos54xx-odroidxu-leds.dtsi                  kirkwood-mv88f6281gtw-ge.dts                 sama5d3_tcb1.dtsi
+am335x-phycore-som-nand-eeprom-tmp.dtsi          exynos54xx.dtsi                                kirkwood-nas2big.dts                         sama5d3_uart.dtsi
+am335x-phycore-som-nand-eeprom.dtsi              exynos5800-peach-pi.dts                        kirkwood-net2big.dts                         sama5d3xcm.dtsi
+am335x-phycore-som-nand-rtc-spi.dtsi             exynos5800.dtsi                                kirkwood-net5big.dts                         sama5d3xcm_cmp.dtsi
+am335x-phycore-som-nand-spi.dtsi                 ge863-pro3.dtsi                                kirkwood-netgear_readynas_duo_v2.dts         sama5d3xdm.dtsi
+am335x-phycore-som-nand.dtsi                     gemini-dlink-dir-685.dts                       kirkwood-netgear_readynas_nv+_v2.dts         sama5d3xmb.dtsi
+am335x-phycore-som.dtsi                          gemini-nas4220b.dts                            kirkwood-netxbig.dtsi                        sama5d3xmb_cmp.dtsi
+am335x-phytec-lcd.dtsi                           gemini-rut1xx.dts                              kirkwood-ns2-common.dtsi                     sama5d3xmb_emac.dtsi
+am335x-regor-rdk.dts                             gemini-sq201.dts                               kirkwood-ns2.dts                             sama5d3xmb_gmac.dtsi
+am335x-regor.dtsi                                gemini-wbd111.dts                              kirkwood-ns2lite.dts                         sama5d4.dtsi
+am335x-sbc-t335.dts                              gemini-wbd222.dts                              kirkwood-ns2max.dts                          samsung_k3pe0e000b.dtsi
+am335x-shc.dts                                   gemini.dtsi                                    kirkwood-ns2mini.dts                         sh73a0-kzm9g.dts
+am335x-sl50.dts                                  hi3519-demb.dts                                kirkwood-nsa310.dts                          sh73a0.dtsi
+am335x-wega-nand-eeprom-rtc-spi.dts              hi3519.dtsi                                    kirkwood-nsa310a.dts                         skeleton.dtsi
+am335x-wega-nand-eeprom-rtc.dts                  hi3620-hi4511.dts                              kirkwood-nsa320.dts                          skeleton64.dtsi
+am335x-wega-peb-av-01.dtsi                       hi3620.dtsi                                    kirkwood-nsa325.dts                          socfpga.dtsi
+am335x-wega-peb-av-02.dtsi                       highbank.dts                                   kirkwood-nsa3x0-common.dtsi                  socfpga_arria10.dtsi
+am335x-wega-peb-eval-01.dtsi                     hip01-ca9x2.dts                                kirkwood-openblocks_a6.dts                   socfpga_arria10_socdk.dtsi
+am335x-wega-peb-wlbt-01.dtsi                     hip01.dtsi                                     kirkwood-openblocks_a7.dts                   socfpga_arria10_socdk_nand.dts
+am335x-wega-rdk.dts                              hip04-d01.dts                                  kirkwood-openrd-base.dts                     socfpga_arria10_socdk_qspi.dts
+am335x-wega.dtsi                                 hip04.dtsi                                     kirkwood-openrd-client.dts                   socfpga_arria10_socdk_sdmmc.dts
+am33xx-clocks.dtsi                               hisi-x5hd2-dkb.dts                             kirkwood-openrd-ultimate.dts                 socfpga_arria5.dtsi
+am33xx.dtsi                                      hisi-x5hd2.dtsi                                kirkwood-openrd.dtsi                         socfpga_arria5_socdk.dts
+am3517-craneboard.dts                            imx1-ads.dts                                   kirkwood-pogo_e02.dts                        socfpga_cyclone5.dtsi
+am3517-evm.dts                                   imx1-apf9328.dts                               kirkwood-pogoplug-series-4.dts               socfpga_cyclone5_de0_sockit.dts
+am3517.dtsi                                      imx1-pinfunc.h                                 kirkwood-rd88f6192.dts                       socfpga_cyclone5_mcv.dtsi
+am3517_mt_ventoux.dts                            imx1.dtsi                                      kirkwood-rd88f6281-a.dts                     socfpga_cyclone5_mcvevk.dts
+am35xx-clocks.dtsi                               imx23-evk.dts                                  kirkwood-rd88f6281-z0.dts                    socfpga_cyclone5_socdk.dts
+am4372.dtsi                                      imx23-olinuxino.dts                            kirkwood-rd88f6281.dtsi                      socfpga_cyclone5_sockit.dts
+am437x-cm-t43.dts                                imx23-pinfunc.h                                kirkwood-rs212.dts                           socfpga_cyclone5_socrates.dts
+am437x-gp-evm.dts                                imx23-sansa.dts                                kirkwood-rs409.dts                           socfpga_cyclone5_sodia.dts
+am437x-idk-evm.dts                               imx23-stmp378x_devb.dts                        kirkwood-rs411.dts                           socfpga_cyclone5_vining_fpga.dts
+am437x-sbc-t43.dts                               imx23-xfi3.dts                                 kirkwood-sheevaplug-common.dtsi              socfpga_vt.dts
+am437x-sk-evm.dts                                imx23.dtsi                                     kirkwood-sheevaplug-esata.dts                spear1310-evb.dts
+am43x-epos-evm.dts                               imx25-eukrea-cpuimx25.dtsi                     kirkwood-sheevaplug.dts                      spear1310.dtsi
+am43xx-clocks.dtsi                               imx25-eukrea-mbimxsd25-baseboard-cmo-qvga.dts  kirkwood-synology.dtsi                       spear1340-evb.dts
+am571x-idk.dts                                   imx25-eukrea-mbimxsd25-baseboard-dvi-svga.dts  kirkwood-t5325.dts                           spear1340.dtsi
+am572x-idk.dts                                   imx25-eukrea-mbimxsd25-baseboard-dvi-vga.dts   kirkwood-topkick.dts                         spear13xx.dtsi
+am57xx-beagle-x15-common.dtsi                    imx25-eukrea-mbimxsd25-baseboard.dts           kirkwood-ts219-6281.dts                      spear300-evb.dts
+am57xx-beagle-x15-revb1.dts                      imx25-karo-tx25.dts                            kirkwood-ts219-6282.dts                      spear300.dtsi
+am57xx-beagle-x15-revc.dts                       imx25-pdk.dts                                  kirkwood-ts219.dtsi                          spear310-evb.dts
+am57xx-beagle-x15.dts                            imx25-pinfunc.h                                kirkwood-ts419-6281.dts                      spear310.dtsi
+am57xx-cl-som-am57x.dts                          imx25.dtsi                                     kirkwood-ts419-6282.dts                      spear320-evb.dts
+am57xx-commercial-grade.dtsi                     imx27-apf27.dts                                kirkwood-ts419.dtsi                          spear320-hmi.dts
+am57xx-idk-common.dtsi                           imx27-apf27dev.dts                             kirkwood.dtsi                                spear320.dtsi
+am57xx-industrial-grade.dtsi                     imx27-eukrea-cpuimx27.dtsi                     logicpd-som-lv-37xx-devkit.dts               spear3xx.dtsi
+am57xx-sbc-am57x.dts                             imx27-eukrea-mbimxsd27-baseboard.dts           logicpd-som-lv.dtsi                          spear600-evb.dts
+animeo_ip.dts                                    imx27-pdk.dts                                  logicpd-torpedo-37xx-devkit.dts              spear600.dtsi
+arm-realview-eb-11mp-bbrevd-ctrevb.dts           imx27-phytec-phycard-s-rdk.dts                 logicpd-torpedo-som.dtsi                     st-pincfg.h
+arm-realview-eb-11mp-bbrevd.dts                  imx27-phytec-phycard-s-som.dtsi                lpc18xx.dtsi                                 ste-ccu8540-pinctrl.dtsi
+arm-realview-eb-11mp-ctrevb.dts                  imx27-phytec-phycore-rdk.dts                   lpc3250-ea3250.dts                           ste-ccu8540.dts
+arm-realview-eb-11mp.dts                         imx27-phytec-phycore-som.dtsi                  lpc3250-phy3250.dts                          ste-ccu9540.dts
+arm-realview-eb-a9mp-bbrevd.dts                  imx27-pinfunc.h                                lpc32xx.dtsi                                 ste-dbx5x0.dtsi
+arm-realview-eb-a9mp.dts                         imx27.dtsi                                     lpc4337-ciaa.dts                             ste-href-ab8500.dtsi
+arm-realview-eb-bbrevd.dts                       imx28-apf28.dts                                lpc4350-hitex-eval.dts                       ste-href-ab8505.dtsi
+arm-realview-eb-bbrevd.dtsi                      imx28-apf28dev.dts                             lpc4350.dtsi                                 ste-href-family-pinctrl.dtsi
+arm-realview-eb-mp.dtsi                          imx28-apx4devkit.dts                           lpc4357-ea4357-devkit.dts                    ste-href-stuib.dtsi
+arm-realview-eb.dts                              imx28-cfa10036.dts                             lpc4357.dtsi                                 ste-href-tvk1281618.dtsi
+arm-realview-eb.dtsi                             imx28-cfa10037.dts                             ls1021a-qds.dts                              ste-href.dtsi
+arm-realview-pb1176.dts                          imx28-cfa10049.dts                             ls1021a-twr.dts                              ste-hrefprev60-stuib.dts
+arm-realview-pb11mp.dts                          imx28-cfa10055.dts                             ls1021a.dtsi                                 ste-hrefprev60-tvk.dts
+arm-realview-pba8.dts                            imx28-cfa10056.dts                             meson.dtsi                                   ste-hrefprev60.dtsi
+arm-realview-pbx-a9.dts                          imx28-cfa10057.dts                             meson6-atv1200.dts                           ste-hrefv60plus-stuib.dts
+arm-realview-pbx.dtsi                            imx28-cfa10058.dts                             meson6.dtsi                                  ste-hrefv60plus-tvk.dts
+armada-370-db.dts                                imx28-duckbill-2-485.dts                       meson8-minix-neo-x8.dts                      ste-hrefv60plus.dtsi
+armada-370-dlink-dns327l.dts                     imx28-duckbill-2-enocean.dts                   meson8.dtsi                                  ste-nomadik-nhk15.dts
+armada-370-mirabox.dts                           imx28-duckbill-2-spi.dts                       meson8b-mxq.dts                              ste-nomadik-pinctrl.dtsi
+armada-370-netgear-rn102.dts                     imx28-duckbill-2.dts                           meson8b-odroidc1.dts                         ste-nomadik-s8815.dts
+armada-370-netgear-rn104.dts                     imx28-duckbill.dts                             meson8b.dtsi                                 ste-nomadik-stn8815.dtsi
+armada-370-rd.dts                                imx28-eukrea-mbmx283lc.dts                     mmp2-brownstone.dts                          ste-snowball.dts
+armada-370-seagate-nas-2bay.dts                  imx28-eukrea-mbmx287lc.dts                     mmp2.dtsi                                    ste-u300.dts
+armada-370-seagate-nas-4bay.dts                  imx28-eukrea-mbmx28lc.dtsi                     motorola-cpcap-mapphone.dtsi                 stih407-b2120.dts
+armada-370-seagate-nas-xbay.dtsi                 imx28-evk.dts                                  moxart-uc7112lx.dts                          stih407-clock.dtsi
+armada-370-seagate-personal-cloud-2bay.dts       imx28-m28.dtsi                                 moxart.dtsi                                  stih407-family.dtsi
+armada-370-seagate-personal-cloud.dts            imx28-m28cu3.dts                               mpa1600.dts                                  stih407-pinctrl.dtsi
+armada-370-seagate-personal-cloud.dtsi           imx28-m28evk.dts                               mps2-an385.dts                               stih407.dtsi
+armada-370-synology-ds213j.dts                   imx28-pinfunc.h                                mps2-an399.dts                               stih410-b2120.dts
+armada-370-xp.dtsi                               imx28-sps1.dts                                 mps2.dtsi                                    stih410-b2260.dts
+armada-370.dtsi                                  imx28-tx28.dts                                 mt2701-evb.dts                               stih410-clock.dtsi
+armada-375-db.dts                                imx28.dtsi                                     mt2701-pinfunc.h                             stih410-pinctrl.dtsi
+armada-375.dtsi                                  imx31-bug.dts                                  mt2701.dtsi                                  stih410.dtsi
+armada-380.dtsi                                  imx31.dtsi                                     mt6323.dtsi                                  stih418-b2199.dts
+armada-385-db-ap.dts                             imx35-eukrea-cpuimx35.dtsi                     mt6580-evbp1.dts                             stih418-clock.dtsi
+armada-385-linksys-caiman.dts                    imx35-eukrea-mbimxsd35-baseboard.dts           mt6580.dtsi                                  stih418.dtsi
+armada-385-linksys-cobra.dts                     imx35-pdk.dts                                  mt6589-aquaris5.dts                          stihxxx-b2120.dtsi
+armada-385-linksys-rango.dts                     imx35-pinfunc.h                                mt6589.dtsi                                  stm32429i-eval.dts
+armada-385-linksys-shelby.dts                    imx35.dtsi                                     mt6592-evb.dts                               stm32746g-eval.dts
+armada-385-linksys.dtsi                          imx50-evk.dts                                  mt6592.dtsi                                  stm32f4-pinctrl.dtsi
+armada-385-synology-ds116.dts                    imx50-pinfunc.h                                mt7623.dtsi                                  stm32f429-disco.dts
+armada-385-turris-omnia.dts                      imx50.dtsi                                     mt7623n-bananapi-bpi-r2.dts                  stm32f429-pinctrl.dtsi
+armada-385.dtsi                                  imx51-apf51.dts                                mt7623n-rfb-nand.dts                         stm32f429.dtsi
+armada-388-clearfog-base.dts                     imx51-apf51dev.dts                             mt7623n-rfb.dtsi                             stm32f469-disco.dts
+armada-388-clearfog-pro.dts                      imx51-babbage.dts                              mt8127-moose.dts                             stm32f469-pinctrl.dtsi
+armada-388-clearfog.dts                          imx51-digi-connectcore-jsk.dts                 mt8127.dtsi                                  stm32f746-disco.dts
+armada-388-clearfog.dtsi                         imx51-digi-connectcore-som.dtsi                mt8135-evbp1.dts                             stm32f746.dtsi
+armada-388-db.dts                                imx51-eukrea-cpuimx51.dtsi                     mt8135-pinfunc.h                             stm32f769-disco.dts
+armada-388-gp.dts                                imx51-eukrea-mbimxsd51-baseboard.dts           mt8135.dtsi                                  stm32h743-pinctrl.dtsi
+armada-388-rd.dts                                imx51-pinfunc.h                                mvebu-linkstation-fan.dtsi                   stm32h743.dtsi
+armada-388.dtsi                                  imx51-ts4800.dts                               mvebu-linkstation-gpio-simple.dtsi           stm32h743i-disco.dts
+armada-38x-solidrun-microsom.dtsi                imx51.dtsi                                     mxs-pinfunc.h                                stm32h743i-eval.dts
+armada-38x.dtsi                                  imx53-ard.dts                                  nspire-classic.dtsi                          sun4i-a10-a1000.dts
+armada-390-db.dts                                imx53-cx9020.dts                               nspire-clp.dts                               sun4i-a10-ba10-tvbox.dts
+armada-390.dtsi                                  imx53-m53.dtsi                                 nspire-cx.dts                                sun4i-a10-chuwi-v7-cw0825.dts
+armada-395-gp.dts                                imx53-m53evk.dts                               nspire-tp.dts                                sun4i-a10-cubieboard.dts
+armada-395.dtsi                                  imx53-mba53.dts                                nspire.dtsi                                  sun4i-a10-dserve-dsrv9703c.dts
+armada-398-db.dts                                imx53-pinfunc.h                                omap-gpmc-smsc911x.dtsi                      sun4i-a10-gemei-g9.dts
+armada-398.dtsi                                  imx53-qsb-common.dtsi                          omap-gpmc-smsc9221.dtsi                      sun4i-a10-hackberry.dts
+armada-39x.dtsi                                  imx53-qsb.dts                                  omap-zoom-common.dtsi                        sun4i-a10-hyundai-a7hd.dts
+armada-xp-98dx3236.dtsi                          imx53-qsrb.dts                                 omap2.dtsi                                   sun4i-a10-inet1.dts
+armada-xp-98dx3336.dtsi                          imx53-smd.dts                                  omap2420-clocks.dtsi                         sun4i-a10-inet97fv2.dts
+armada-xp-98dx4251.dtsi                          imx53-tqma53.dtsi                              omap2420-h4.dts                              sun4i-a10-inet9f-rev03.dts
+armada-xp-axpwifiap.dts                          imx53-tx53-x03x.dts                            omap2420-n800.dts                            sun4i-a10-itead-iteaduino-plus.dts
+armada-xp-db-dxbc2.dts                           imx53-tx53-x13x.dts                            omap2420-n810-wimax.dts                      sun4i-a10-jesurun-q5.dts
+armada-xp-db-xc3-24g4xg.dts                      imx53-tx53.dtsi                                omap2420-n810.dts                            sun4i-a10-marsboard.dts
+armada-xp-db.dts                                 imx53-usbarmory.dts                            omap2420-n8x0-common.dtsi                    sun4i-a10-mini-xplus.dts
+armada-xp-gp.dts                                 imx53-voipac-bsb.dts                           omap2420.dtsi                                sun4i-a10-mk802.dts
+armada-xp-lenovo-ix4-300d.dts                    imx53-voipac-dmm-668.dtsi                      omap2430-clocks.dtsi                         sun4i-a10-mk802ii.dts
+armada-xp-linksys-mamba.dts                      imx53.dtsi                                     omap2430-sdp.dts                             sun4i-a10-olinuxino-lime.dts
+armada-xp-matrix.dts                             imx6dl-apf6dev.dts                             omap2430.dtsi                                sun4i-a10-pcduino.dts
+armada-xp-mv78230.dtsi                           imx6dl-aristainetos2_4.dts                     omap24xx-clocks.dtsi                         sun4i-a10-pcduino2.dts
+armada-xp-mv78260.dtsi                           imx6dl-aristainetos2_7.dts                     omap3-beagle-xm-ab.dts                       sun4i-a10-pov-protab2-ips9.dts
+armada-xp-mv78460.dtsi                           imx6dl-aristainetos_4.dts                      omap3-beagle-xm.dts                          sun4i-a10.dtsi
+armada-xp-netgear-rn2120.dts                     imx6dl-aristainetos_7.dts                      omap3-beagle.dts                             sun5i-a10s-auxtek-t003.dts
+armada-xp-openblocks-ax3-4.dts                   imx6dl-colibri-eval-v3.dts                     omap3-cm-t3517.dts                           sun5i-a10s-auxtek-t004.dts
+armada-xp-synology-ds414.dts                     imx6dl-cubox-i.dts                             omap3-cm-t3530.dts                           sun5i-a10s-mk802.dts
+armada-xp.dtsi                                   imx6dl-dfi-fs700-m60.dts                       omap3-cm-t3730.dts                           sun5i-a10s-olinuxino-micro.dts
+armv7-m.dtsi                                     imx6dl-gw51xx.dts                              omap3-cm-t3x.dtsi                            sun5i-a10s-r7-tv-dongle.dts
+artpec6-devboard.dts                             imx6dl-gw52xx.dts                              omap3-cm-t3x30.dtsi                          sun5i-a10s-wobo-i5.dts
+artpec6.dtsi                                     imx6dl-gw53xx.dts                              omap3-cpu-thermal.dtsi                       sun5i-a10s.dtsi
+aspeed-ast2500-evb.dts                           imx6dl-gw54xx.dts                              omap3-devkit8000-common.dtsi                 sun5i-a13-difrnce-dit4350.dts
+aspeed-bmc-opp-palmetto.dts                      imx6dl-gw551x.dts                              omap3-devkit8000-lcd-common.dtsi             sun5i-a13-empire-electronix-d709.dts
+aspeed-bmc-opp-romulus.dts                       imx6dl-gw552x.dts                              omap3-devkit8000-lcd43.dts                   sun5i-a13-empire-electronix-m712.dts
+aspeed-g4.dtsi                                   imx6dl-gw553x.dts                              omap3-devkit8000-lcd70.dts                   sun5i-a13-hsg-h702.dts
+aspeed-g5.dtsi                                   imx6dl-gw560x.dts                              omap3-devkit8000.dts                         sun5i-a13-inet-98v-rev2.dts
+at91-ariag25.dts                                 imx6dl-gw5903.dts                              omap3-evm-37xx.dts                           sun5i-a13-licheepi-one.dts
+at91-ariettag25.dts                              imx6dl-gw5904.dts                              omap3-evm-common.dtsi                        sun5i-a13-olinuxino-micro.dts
+at91-cosino.dtsi                                 imx6dl-hummingboard.dts                        omap3-evm.dts                                sun5i-a13-olinuxino.dts
+at91-cosino_mega2560.dts                         imx6dl-icore-rqs.dts                           omap3-gta04.dtsi                             sun5i-a13-q8-tablet.dts
+at91-foxg20.dts                                  imx6dl-icore.dts                               omap3-gta04a3.dts                            sun5i-a13-utoo-p66.dts
+at91-kizbox.dts                                  imx6dl-nit6xlite.dts                           omap3-gta04a4.dts                            sun5i-a13.dtsi
+at91-kizbox2.dts                                 imx6dl-nitrogen6x.dts                          omap3-gta04a5.dts                            sun5i-gr8-chip-pro.dts
+at91-kizboxmini.dts                              imx6dl-phytec-mira-ff-rdk-emmc.dts             omap3-ha-common.dtsi                         sun5i-gr8-evb.dts
+at91-linea.dtsi                                  imx6dl-phytec-mira-ff-rdk-nand.dts             omap3-ha-lcd.dts                             sun5i-gr8.dtsi
+at91-qil_a9260.dts                               imx6dl-phytec-mira-lc-rdk-emmc.dts             omap3-ha.dts                                 sun5i-r8-chip.dts
+at91-sam9_l9260.dts                              imx6dl-phytec-mira-lc-rdk-nand.dts             omap3-igep.dtsi                              sun5i-r8.dtsi
+at91-sama5d27_som1.dtsi                          imx6dl-phytec-pbab01-nonor.dts                 omap3-igep0020-common.dtsi                   sun5i-reference-design-tablet.dtsi
+at91-sama5d27_som1_ek.dts                        imx6dl-phytec-pbab01.dts                       omap3-igep0020-rev-f.dts                     sun5i.dtsi
+at91-sama5d2_xplained.dts                        imx6dl-phytec-pfla02-nonor.dtsi                omap3-igep0020.dts                           sun6i-a31-app4-evb1.dts
+at91-sama5d3_xplained.dts                        imx6dl-phytec-pfla02.dtsi                      omap3-igep0030-common.dtsi                   sun6i-a31-colombus.dts
+at91-sama5d4_ma5d4.dtsi                          imx6dl-pinfunc.h                               omap3-igep0030-rev-g.dts                     sun6i-a31-hummingbird.dts
+at91-sama5d4_ma5d4evk.dts                        imx6dl-rex-basic.dts                           omap3-igep0030.dts                           sun6i-a31-i7.dts
+at91-sama5d4_xplained.dts                        imx6dl-riotboard.dts                           omap3-ldp.dts                                sun6i-a31-m9.dts
+at91-sama5d4ek.dts                               imx6dl-sabreauto.dts                           omap3-lilly-a83x.dtsi                        sun6i-a31-mele-a1000g-quad.dts
+at91-tse850-3.dts                                imx6dl-sabrelite.dts                           omap3-lilly-dbb056.dts                       sun6i-a31.dtsi
+at91-vinco.dts                                   imx6dl-sabresd.dts                             omap3-n9.dts                                 sun6i-a31s-colorfly-e708-q1.dts
+at91rm9200.dtsi                                  imx6dl-savageboard.dts                         omap3-n900.dts                               sun6i-a31s-cs908.dts
+at91rm9200_pqfp.dtsi                             imx6dl-ts4900.dts                              omap3-n950-n9.dtsi                           sun6i-a31s-inet-q972.dts
+at91rm9200ek.dts                                 imx6dl-tx6dl-comtft.dts                        omap3-n950.dts                               sun6i-a31s-primo81.dts
+at91sam9260.dtsi                                 imx6dl-tx6s-8034.dts                           omap3-overo-alto35-common.dtsi               sun6i-a31s-sina31s-core.dtsi
+at91sam9260ek.dts                                imx6dl-tx6s-8035.dts                           omap3-overo-alto35.dts                       sun6i-a31s-sina31s.dts
+at91sam9261.dtsi                                 imx6dl-tx6u-801x.dts                           omap3-overo-base.dtsi                        sun6i-a31s-sinovoip-bpi-m2.dts
+at91sam9261ek.dts                                imx6dl-tx6u-8033.dts                           omap3-overo-chestnut43-common.dtsi           sun6i-a31s-yones-toptech-bs1078-v2.dts
+at91sam9263.dtsi                                 imx6dl-tx6u-811x.dts                           omap3-overo-chestnut43.dts                   sun6i-a31s.dtsi
+at91sam9263ek.dts                                imx6dl-tx6u-81xx-mb7.dts                       omap3-overo-common-dvi.dtsi                  sun6i-reference-design-tablet.dtsi
+at91sam9g15.dtsi                                 imx6dl-udoo.dts                                omap3-overo-common-lcd35.dtsi                sun7i-a20-bananapi-m1-plus.dts
+at91sam9g15ek.dts                                imx6dl-wandboard-revb1.dts                     omap3-overo-common-lcd43.dtsi                sun7i-a20-bananapi.dts
+at91sam9g20.dtsi                                 imx6dl-wandboard.dts                           omap3-overo-common-peripherals.dtsi          sun7i-a20-bananapro.dts
+at91sam9g20ek.dts                                imx6dl.dtsi                                    omap3-overo-gallop43-common.dtsi             sun7i-a20-cubieboard2.dts
+at91sam9g20ek_2mmc.dts                           imx6q-apalis-eval.dts                          omap3-overo-gallop43.dts                     sun7i-a20-cubietruck.dts
+at91sam9g20ek_common.dtsi                        imx6q-apalis-ixora-v1.1.dts                    omap3-overo-palo35-common.dtsi               sun7i-a20-hummingbird.dts
+at91sam9g25.dtsi                                 imx6q-apalis-ixora.dts                         omap3-overo-palo35.dts                       sun7i-a20-i12-tvbox.dts
+at91sam9g25ek.dts                                imx6q-apf6dev.dts                              omap3-overo-palo43-common.dtsi               sun7i-a20-icnova-swac.dts
+at91sam9g35.dtsi                                 imx6q-arm2.dts                                 omap3-overo-palo43.dts                       sun7i-a20-itead-ibox.dts
+at91sam9g35ek.dts                                imx6q-b450v3.dts                               omap3-overo-storm-alto35.dts                 sun7i-a20-lamobo-r1.dts
+at91sam9g45.dtsi                                 imx6q-b650v3.dts                               omap3-overo-storm-chestnut43.dts             sun7i-a20-m3.dts
+at91sam9m10g45ek.dts                             imx6q-b850v3.dts                               omap3-overo-storm-gallop43.dts               sun7i-a20-mk808c.dts
+at91sam9n12.dtsi                                 imx6q-ba16.dtsi                                omap3-overo-storm-palo35.dts                 sun7i-a20-olimex-som-evb.dts
+at91sam9n12ek.dts                                imx6q-bx50v3.dtsi                              omap3-overo-storm-palo43.dts                 sun7i-a20-olinuxino-lime.dts
+at91sam9rl.dtsi                                  imx6q-cm-fx6.dts                               omap3-overo-storm-summit.dts                 sun7i-a20-olinuxino-lime2-emmc.dts
+at91sam9rlek.dts                                 imx6q-cubox-i.dts                              omap3-overo-storm-tobi.dts                   sun7i-a20-olinuxino-lime2.dts
+at91sam9x25.dtsi                                 imx6q-dfi-fs700-m60.dts                        omap3-overo-storm-tobiduo.dts                sun7i-a20-olinuxino-micro.dts
+at91sam9x25ek.dts                                imx6q-dmo-edmqmx6.dts                          omap3-overo-storm.dtsi                       sun7i-a20-orangepi-mini.dts
+at91sam9x35.dtsi                                 imx6q-evi.dts                                  omap3-overo-summit-common.dtsi               sun7i-a20-orangepi.dts
+at91sam9x35ek.dts                                imx6q-gk802.dts                                omap3-overo-summit.dts                       sun7i-a20-pcduino3-nano.dts
+at91sam9x5.dtsi                                  imx6q-gw51xx.dts                               omap3-overo-tobi-common.dtsi                 sun7i-a20-pcduino3.dts
+at91sam9x5_can.dtsi                              imx6q-gw52xx.dts                               omap3-overo-tobi.dts                         sun7i-a20-wexler-tab7200.dts
+at91sam9x5_isi.dtsi                              imx6q-gw53xx.dts                               omap3-overo-tobiduo-common.dtsi              sun7i-a20-wits-pro-a20-dkt.dts
+at91sam9x5_lcd.dtsi                              imx6q-gw5400-a.dts                             omap3-overo-tobiduo.dts                      sun7i-a20.dtsi
+at91sam9x5_macb0.dtsi                            imx6q-gw54xx.dts                               omap3-overo.dtsi                             sun8i-a23-a33.dtsi
+at91sam9x5_macb1.dtsi                            imx6q-gw551x.dts                               omap3-pandora-1ghz.dts                       sun8i-a23-evb.dts
+at91sam9x5_usart3.dtsi                           imx6q-gw552x.dts                               omap3-pandora-600mhz.dts                     sun8i-a23-gt90h-v4.dts
+at91sam9x5cm.dtsi                                imx6q-gw553x.dts                               omap3-pandora-common.dtsi                    sun8i-a23-inet86dz.dts
+at91sam9x5dm.dtsi                                imx6q-gw560x.dts                               omap3-panel-sharp-ls037v7dw01.dtsi           sun8i-a23-ippo-q8h-v1.2.dts
+at91sam9x5ek.dtsi                                imx6q-gw5903.dts                               omap3-sb-t35.dtsi                            sun8i-a23-ippo-q8h-v5.dts
+at91sam9xe.dtsi                                  imx6q-gw5904.dts                               omap3-sbc-t3517.dts                          sun8i-a23-polaroid-mid2407pxe03.dts
+atlas6-evb.dts                                   imx6q-h100.dts                                 omap3-sbc-t3530.dts                          sun8i-a23-polaroid-mid2809pxe04.dts
+atlas6.dtsi                                      imx6q-hummingboard.dts                         omap3-sbc-t3730.dts                          sun8i-a23-q8-tablet.dts
+atlas7-evb.dts                                   imx6q-icore-ofcap10.dts                        omap3-sniper.dts                             sun8i-a23.dtsi
+atlas7.dtsi                                      imx6q-icore-ofcap12.dts                        omap3-tao3530.dtsi                           sun8i-a33-et-q8-v1.6.dts
+axm5516-amarillo.dts                             imx6q-icore-rqs.dts                            omap3-thunder.dts                            sun8i-a33-ga10h-v1.1.dts
+axm5516-cpus.dtsi                                imx6q-icore.dts                                omap3-zoom3.dts                              sun8i-a33-inet-d978-rev2.dts
+axm55xx.dtsi                                     imx6q-marsboard.dts                            omap3.dtsi                                   sun8i-a33-ippo-q8h-v1.2.dts
+axp152.dtsi                                      imx6q-mccmon6.dts                              omap3430-sdp.dts                             sun8i-a33-olinuxino.dts
+axp209.dtsi                                      imx6q-nitrogen6_max.dts                        omap3430es1-clocks.dtsi                      sun8i-a33-q8-tablet.dts
+axp223.dtsi                                      imx6q-nitrogen6_som2.dts                       omap34xx-omap36xx-clocks.dtsi                sun8i-a33-sinlinx-sina33.dts
+axp22x.dtsi                                      imx6q-nitrogen6x.dts                           omap34xx.dtsi                                sun8i-a33.dtsi
+axp809.dtsi                                      imx6q-novena.dts                               omap36xx-am35xx-omap3430es2plus-clocks.dtsi  sun8i-a83t-allwinner-h8homlet-v2.dts
+bcm-cygnus-clock.dtsi                            imx6q-phytec-mira-ff-rdk-emmc.dts              omap36xx-clocks.dtsi                         sun8i-a83t-bananapi-m3.dts
+bcm-cygnus.dtsi                                  imx6q-phytec-mira-ff-rdk-nand-rs485.dts        omap36xx-omap3430es2plus-clocks.dtsi         sun8i-a83t-cubietruck-plus.dts
+bcm-nsp.dtsi                                     imx6q-phytec-mira-ff-rdk-nand.dts              omap36xx.dtsi                                sun8i-a83t.dtsi
+bcm11351.dtsi                                    imx6q-phytec-nunki-rdk-nand.dts                omap3xxx-clocks.dtsi                         sun8i-h2-plus-orangepi-zero.dts
+bcm21664-garnet.dts                              imx6q-phytec-pbab01.dts                        omap4-cpu-thermal.dtsi                       sun8i-h3-bananapi-m2-plus.dts
+bcm21664.dtsi                                    imx6q-phytec-pfla02.dtsi                       omap4-droid4-xt894.dts                       sun8i-h3-beelink-x2.dts
+bcm23550-sparrow.dts                             imx6q-pinfunc.h                                omap4-duovero-parlor.dts                     sun8i-h3-nanopi-m1-plus.dts
+bcm23550.dtsi                                    imx6q-rex-pro.dts                              omap4-duovero.dtsi                           sun8i-h3-nanopi-m1.dts
+bcm28155-ap.dts                                  imx6q-sabreauto.dts                            omap4-kc1.dts                                sun8i-h3-nanopi-neo-air.dts
+bcm2835-rpi-a-plus.dts                           imx6q-sabrelite.dts                            omap4-panda-a4.dts                           sun8i-h3-nanopi-neo.dts
+bcm2835-rpi-a.dts                                imx6q-sabresd.dts                              omap4-panda-common.dtsi                      sun8i-h3-nanopi.dtsi
+bcm2835-rpi-b-plus.dts                           imx6q-savageboard.dts                          omap4-panda-es.dts                           sun8i-h3-orangepi-2.dts
+bcm2835-rpi-b-rev2.dts                           imx6q-sbc6x.dts                                omap4-panda.dts                              sun8i-h3-orangepi-lite.dts
+bcm2835-rpi-b.dts                                imx6q-tbs2910.dts                              omap4-sdp-es23plus.dts                       sun8i-h3-orangepi-one.dts
+bcm2835-rpi-zero-w.dts                           imx6q-ts4900.dts                               omap4-sdp.dts                                sun8i-h3-orangepi-pc-plus.dts
+bcm2835-rpi-zero.dts                             imx6q-tx6q-1010-comtft.dts                     omap4-var-dvk-om44.dts                       sun8i-h3-orangepi-pc.dts
+bcm2835-rpi.dtsi                                 imx6q-tx6q-1010.dts                            omap4-var-om44customboard.dtsi               sun8i-h3-orangepi-plus.dts
+bcm2835.dtsi                                     imx6q-tx6q-1020-comtft.dts                     omap4-var-som-om44-wlan.dtsi                 sun8i-h3-orangepi-plus2e.dts
+bcm2836-rpi-2-b.dts                              imx6q-tx6q-1020.dts                            omap4-var-som-om44.dtsi                      sun8i-h3.dtsi
+bcm2836.dtsi                                     imx6q-tx6q-1036.dts                            omap4-var-stk-om44.dts                       sun8i-q8-common.dtsi
+bcm2837-rpi-3-b.dts                              imx6q-tx6q-1110.dts                            omap4.dtsi                                   sun8i-r16-bananapi-m2m.dts
+bcm2837.dtsi                                     imx6q-tx6q-11x0-mb7.dts                        omap443x-clocks.dtsi                         sun8i-r16-parrot.dts
+bcm283x-rpi-smsc9512.dtsi                        imx6q-udoo.dts                                 omap443x.dtsi                                sun8i-reference-design-tablet.dtsi
+bcm283x-rpi-smsc9514.dtsi                        imx6q-utilite-pro.dts                          omap4460.dtsi                                sun8i-v3s-licheepi-zero-dock.dts
+bcm283x-rpi-usb-host.dtsi                        imx6q-wandboard-revb1.dts                      omap446x-clocks.dtsi                         sun8i-v3s-licheepi-zero.dts
+bcm283x-rpi-usb-otg.dtsi                         imx6q-wandboard.dts                            omap44xx-clocks.dtsi                         sun8i-v3s.dtsi
+bcm283x.dtsi                                     imx6q-zii-rdu2.dts                             omap5-board-common.dtsi                      sun9i-a80-cubieboard4.dts
+bcm4708-asus-rt-ac56u.dts                        imx6q.dtsi                                     omap5-cm-t54.dts                             sun9i-a80-optimus.dts
+bcm4708-asus-rt-ac68u.dts                        imx6qdl-apalis.dtsi                            omap5-core-thermal.dtsi                      sun9i-a80.dtsi
+bcm4708-buffalo-wzr-1750dhp.dts                  imx6qdl-apf6.dtsi                              omap5-gpu-thermal.dtsi                       sunxi-common-regulators.dtsi
+bcm4708-linksys-ea6300-v1.dts                    imx6qdl-apf6dev.dtsi                           omap5-igep0050.dts                           sunxi-h3-h5.dtsi
+bcm4708-luxul-xap-1510.dts                       imx6qdl-aristainetos.dtsi                      omap5-sbc-t54.dts                            sunxi-itead-core-common.dtsi
+bcm4708-luxul-xwc-1000.dts                       imx6qdl-aristainetos2.dtsi                     omap5-uevm.dts                               sunxi-reference-design-tablet.dtsi
+bcm4708-netgear-r6250.dts                        imx6qdl-colibri.dtsi                           omap5.dtsi                                   tango4-common.dtsi
+bcm4708-netgear-r6300-v2.dts                     imx6qdl-cubox-i.dtsi                           omap54xx-clocks.dtsi                         tango4-smp8758.dtsi
+bcm4708-smartrg-sr400ac.dts                      imx6qdl-dfi-fs700-m60.dtsi                     orion5x-kuroboxpro.dts                       tango4-vantage-1172.dts
+bcm4708.dtsi                                     imx6qdl-gw51xx.dtsi                            orion5x-lacie-d2-network.dts                 tegra114-dalmore.dts
+bcm47081-asus-rt-n18u.dts                        imx6qdl-gw52xx.dtsi                            orion5x-lacie-ethernet-disk-mini-v2.dts      tegra114-roth.dts
+bcm47081-buffalo-wzr-600dhp2.dts                 imx6qdl-gw53xx.dtsi                            orion5x-linkstation-lschl.dts                tegra114-tn7.dts
+bcm47081-buffalo-wzr-900dhp.dts                  imx6qdl-gw54xx.dtsi                            orion5x-linkstation-lsgl.dts                 tegra114.dtsi
+bcm47081-luxul-xap-1410.dts                      imx6qdl-gw551x.dtsi                            orion5x-linkstation-lswtgl.dts               tegra124-apalis-emc.dtsi
+bcm47081-luxul-xwr-1200.dts                      imx6qdl-gw552x.dtsi                            orion5x-linkstation.dtsi                     tegra124-apalis-eval.dts
+bcm47081-tplink-archer-c5-v2.dts                 imx6qdl-gw553x.dtsi                            orion5x-lswsgl.dts                           tegra124-apalis.dtsi
+bcm47081.dtsi                                    imx6qdl-gw560x.dtsi                            orion5x-maxtor-shared-storage-2.dts          tegra124-jetson-tk1-emc.dtsi
+bcm4709-asus-rt-ac87u.dts                        imx6qdl-gw5903.dtsi                            orion5x-mv88f5181.dtsi                       tegra124-jetson-tk1.dts
+bcm4709-buffalo-wxr-1900dhp.dts                  imx6qdl-gw5904.dtsi                            orion5x-mv88f5182.dtsi                       tegra124-nyan-big-emc.dtsi
+bcm4709-linksys-ea9200.dts                       imx6qdl-hummingboard.dtsi                      orion5x-netgear-wnr854t.dts                  tegra124-nyan-big.dts
+bcm4709-netgear-r7000.dts                        imx6qdl-icore-rqs.dtsi                         orion5x-rd88f5182-nas.dts                    tegra124-nyan-blaze-emc.dtsi
+bcm4709-netgear-r8000.dts                        imx6qdl-icore.dtsi                             orion5x.dtsi                                 tegra124-nyan-blaze.dts
+bcm4709-tplink-archer-c9-v1.dts                  imx6qdl-microsom-ar8035.dtsi                   owl-s500-guitar-bb-rev-b.dts                 tegra124-nyan.dtsi
+bcm4709.dtsi                                     imx6qdl-microsom.dtsi                          owl-s500-guitar.dtsi                         tegra124-venice2.dts
+bcm47094-dlink-dir-885l.dts                      imx6qdl-nit6xlite.dtsi                         owl-s500.dtsi                                tegra124.dtsi
+bcm47094-linksys-panamera.dts                    imx6qdl-nitrogen6_max.dtsi                     ox810se.dtsi                                 tegra20-colibri-512.dtsi
+bcm47094-luxul-xwr-3100.dts                      imx6qdl-nitrogen6_som2.dtsi                    ox820.dtsi                                   tegra20-harmony.dts
+bcm47094-netgear-r8500.dts                       imx6qdl-nitrogen6x.dtsi                        picoxcell-pc3x2.dtsi                         tegra20-iris-512.dts
+bcm47094.dtsi                                    imx6qdl-phytec-lcd.dtsi                        picoxcell-pc3x3.dtsi                         tegra20-medcom-wide.dts
+bcm47189-tenda-ac9.dts                           imx6qdl-phytec-mira-peb-av-02.dtsi             picoxcell-pc7302-pc3x2.dts                   tegra20-paz00.dts
+bcm5301x-nand-cs0-bch1.dtsi                      imx6qdl-phytec-mira-peb-eval-01.dtsi           picoxcell-pc7302-pc3x3.dts                   tegra20-plutux.dts
+bcm5301x-nand-cs0-bch4.dtsi                      imx6qdl-phytec-mira.dtsi                       pm9g45.dts                                   tegra20-seaboard.dts
+bcm5301x-nand-cs0-bch8.dtsi                      imx6qdl-phytec-nunki-peb-av-02.dtsi            prima2-evb.dts                               tegra20-tamonten.dtsi
+bcm5301x-nand-cs0.dtsi                           imx6qdl-phytec-nunki.dtsi                      prima2.dtsi                                  tegra20-tec.dts
+bcm5301x.dtsi                                    imx6qdl-phytec-pbab01.dtsi                     pxa168-aspenite.dts                          tegra20-trimslice.dts
+bcm53573.dtsi                                    imx6qdl-phytec-peb-wlbt-01.dtsi                pxa168.dtsi                                  tegra20-ventana.dts
+bcm59056.dtsi                                    imx6qdl-phytec-pfla02.dtsi                     pxa25x.dtsi                                  tegra20.dtsi
+bcm63138.dtsi                                    imx6qdl-phytec-phycore-som.dtsi                pxa27x.dtsi                                  tegra30-apalis-eval.dts
+bcm7445-bcm97445svmb.dts                         imx6qdl-rex.dtsi                               pxa2xx.dtsi                                  tegra30-apalis.dtsi
+bcm7445.dtsi                                     imx6qdl-sabreauto.dtsi                         pxa3xx.dtsi                                  tegra30-beaver.dts
+bcm911360_entphn.dts                             imx6qdl-sabrelite.dtsi                         pxa910-dkb.dts                               tegra30-cardhu-a02.dts
+bcm911360k.dts                                   imx6qdl-sabresd.dtsi                           pxa910.dtsi                                  tegra30-cardhu-a04.dts
+bcm94708.dts                                     imx6qdl-savageboard.dtsi                       qcom-apq8060-dragonboard.dts                 tegra30-cardhu.dtsi
+bcm94709.dts                                     imx6qdl-ts4900.dtsi                            qcom-apq8064-arrow-sd-600eval-pins.dtsi      tegra30-colibri-eval-v3.dts
+bcm947189acdbmr.dts                              imx6qdl-tx6.dtsi                               qcom-apq8064-arrow-sd-600eval.dts            tegra30-colibri.dtsi
+bcm953012er.dts                                  imx6qdl-udoo.dtsi                              qcom-apq8064-asus-nexus7-flo.dts             tegra30.dtsi
+bcm953012hr.dts                                  imx6qdl-wandboard-revb1.dtsi                   qcom-apq8064-cm-qs600.dts                    tny_a9260.dts
+bcm953012k.dts                                   imx6qdl-wandboard-revc1.dtsi                   qcom-apq8064-ifc6410.dts                     tny_a9260_common.dtsi
+bcm958300k.dts                                   imx6qdl-wandboard.dtsi                         qcom-apq8064-pins.dtsi                       tny_a9263.dts
+bcm958305k.dts                                   imx6qdl-zii-rdu2.dtsi                          qcom-apq8064-sony-xperia-yuga.dts            tny_a9g20.dts
+bcm958522er.dts                                  imx6qdl.dtsi                                   qcom-apq8064-v2.0.dtsi                       tps6507x.dtsi
+bcm958525er.dts                                  imx6qp-nitrogen6_max.dts                       qcom-apq8064.dtsi                            tps65217.dtsi
+bcm958525xmc.dts                                 imx6qp-nitrogen6_som2.dts                      qcom-apq8074-dragonboard.dts                 tps65910.dtsi
+bcm958622hr.dts                                  imx6qp-phytec-mira-ff-rdk-nand.dts             qcom-apq8084-ifc6540.dts                     twl4030.dtsi
+bcm958623hr.dts                                  imx6qp-sabreauto.dts                           qcom-apq8084-mtp.dts                         twl4030_omap3.dtsi
+bcm958625hr.dts                                  imx6qp-sabresd.dts                             qcom-apq8084.dtsi                            twl6030.dtsi
+bcm958625k.dts                                   imx6qp-zii-rdu2.dts                            qcom-ipq4019-ap.dk01.1-c1.dts                twl6030_omap4.dtsi
+bcm963138dvt.dts                                 imx6qp.dtsi                                    qcom-ipq4019-ap.dk01.1.dtsi                  uniphier-ld4-ref.dts
+bcm988312hr.dts                                  imx6sl-evk.dts                                 qcom-ipq4019.dtsi                            uniphier-ld4.dtsi
+bcm9hmidc.dtsi                                   imx6sl-pinfunc.h                               qcom-ipq8064-ap148.dts                       uniphier-ld6b-ref.dts
+berlin2-sony-nsz-gs7.dts                         imx6sl-warp.dts                                qcom-ipq8064-v1.0.dtsi                       uniphier-ld6b.dtsi
+berlin2.dtsi                                     imx6sl.dtsi                                    qcom-ipq8064.dtsi                            uniphier-pinctrl.dtsi
+berlin2cd-google-chromecast.dts                  imx6sx-nitrogen6sx.dts                         qcom-mdm9615-wp8548-mangoh-green.dts         uniphier-pro4-ace.dts
+berlin2cd.dtsi                                   imx6sx-pinfunc.h                               qcom-mdm9615-wp8548.dtsi                     uniphier-pro4-ref.dts
+berlin2q-marvell-dmp.dts                         imx6sx-sabreauto.dts                           qcom-mdm9615.dtsi                            uniphier-pro4-sanji.dts
+berlin2q.dtsi                                    imx6sx-sdb-reva.dts                            qcom-msm8660-surf.dts                        uniphier-pro4.dtsi
+cloudengines-pogoplug-series-3.dts               imx6sx-sdb-sai.dts                             qcom-msm8660.dtsi                            uniphier-pro5.dtsi
+compulab-sb-som.dtsi                             imx6sx-sdb.dts                                 qcom-msm8960-cdp.dts                         uniphier-pxs2-gentil.dts
+cros-adc-thermistors.dtsi                        imx6sx-sdb.dtsi                                qcom-msm8960.dtsi                            uniphier-pxs2-vodka.dts
+cros-ec-keyboard.dtsi                            imx6sx-udoo-neo-basic.dts                      qcom-msm8974-lge-nexus5-hammerhead.dts       uniphier-pxs2.dtsi
+cros-ec-sbs.dtsi                                 imx6sx-udoo-neo-extended.dts                   qcom-msm8974-sony-xperia-honami.dts          uniphier-ref-daughter.dtsi
+cx92755.dtsi                                     imx6sx-udoo-neo-full.dts                       qcom-msm8974.dtsi                            uniphier-sld8-ref.dts
+cx92755_equinox.dts                              imx6sx-udoo-neo.dtsi                           qcom-pm8841.dtsi                             uniphier-sld8.dtsi
+da850-enbw-cmc.dts                               imx6sx.dtsi                                    qcom-pm8941.dtsi                             uniphier-support-card.dtsi
+da850-evm.dts                                    imx6ul-14x14-evk.dts                           qcom-pma8084.dtsi                            usb_a9260.dts
+da850-lcdk.dts                                   imx6ul-geam.dts                                r7s72100-genmai.dts                          usb_a9260_common.dtsi
+da850-lego-ev3.dts                               imx6ul-isiot-emmc.dts                          r7s72100-gr-peach.dts                        usb_a9263.dts
+da850.dtsi                                       imx6ul-isiot-nand.dts                          r7s72100-rskrza1.dts                         usb_a9g20-dab-mmx.dtsi
+dm8148-evm.dts                                   imx6ul-isiot.dtsi                              r7s72100.dtsi                                usb_a9g20.dts
+dm8148-t410.dts                                  imx6ul-liteboard.dts                           r8a73a4-ape6evm.dts                          usb_a9g20_common.dtsi
+dm814x-clocks.dtsi                               imx6ul-litesom.dtsi                            r8a73a4.dtsi                                 usb_a9g20_lpw.dts
+dm814x.dtsi                                      imx6ul-opos6ul.dtsi                            r8a7740-armadillo800eva.dts                  versatile-ab.dts
+dm8168-evm.dts                                   imx6ul-opos6uldev.dts                          r8a7740.dtsi                                 versatile-pb.dts
+dm816x-clocks.dtsi                               imx6ul-phytec-peb-wlbt-01.dtsi                 r8a7743-iwg20d-q7.dts                        vexpress-v2m-rs1.dtsi
+dm816x.dtsi                                      imx6ul-phytec-phyboard-segin-ff-rdk-rs485.dts  r8a7743-iwg20m.dtsi                          vexpress-v2m.dtsi
+dove-cm-a510.dtsi                                imx6ul-phytec-phyboard-segin-ff-rdk.dts        r8a7743-sk-rzg1m.dts                         vexpress-v2p-ca15-tc1.dts
+dove-cubox-es.dts                                imx6ul-phytec-phyboard-segin.dtsi              r8a7743.dtsi                                 vexpress-v2p-ca15_a7.dts
+dove-cubox.dts                                   imx6ul-phytec-phycore-som.dtsi                 r8a7745-sk-rzg1e.dts                         vexpress-v2p-ca5s.dts
+dove-d2plug.dts                                  imx6ul-phytec-segin-peb-av-02.dtsi             r8a7745.dtsi                                 vexpress-v2p-ca9.dts
+dove-d3plug.dts                                  imx6ul-phytec-segin-peb-eval-01.dtsi           r8a7778-bockw.dts                            vf-colibri-eval-v3.dtsi
+dove-dove-db.dts                                 imx6ul-pico-hobbit.dts                         r8a7778.dtsi                                 vf-colibri.dtsi
+dove-sbc-a510.dts                                imx6ul-pinfunc.h                               r8a7779-marzen.dts                           vf500-colibri-eval-v3.dts
+dove.dtsi                                        imx6ul-tx6ul-0010.dts                          r8a7779.dtsi                                 vf500-colibri.dtsi
+dra62x-clocks.dtsi                               imx6ul-tx6ul-0011.dts                          r8a7790-lager.dts                            vf500.dtsi
+dra62x-j5eco-evm.dts                             imx6ul-tx6ul-mainboard.dts                     r8a7790.dtsi                                 vf610-colibri-eval-v3.dts
+dra62x.dtsi                                      imx6ul-tx6ul.dtsi                              r8a7791-koelsch.dts                          vf610-colibri.dtsi
+dra7-dspeve-thermal.dtsi                         imx6ul.dtsi                                    r8a7791-porter.dts                           vf610-cosmic.dts
+dra7-evm-common.dtsi                             imx6ull-14x14-evk.dts                          r8a7791.dtsi                                 vf610-pinfunc.h
+dra7-evm.dts                                     imx6ull-phytec-phyboard-segin-lc-rdk.dts       r8a7792-blanche.dts                          vf610-twr.dts
+dra7-iva-thermal.dtsi                            imx6ull-pinfunc.h                              r8a7792-wheat.dts                            vf610-zii-dev-rev-b.dts
+dra7.dtsi                                        imx6ull.dtsi                                   r8a7792.dtsi                                 vf610-zii-dev-rev-c.dts
+dra71-evm.dts                                    imx7-colibri-eval-v3.dtsi                      r8a7793-gose.dts                             vf610-zii-dev.dtsi
+dra72-evm-common.dtsi                            imx7-colibri.dtsi                              r8a7793.dtsi                                 vf610.dtsi
+dra72-evm-revc.dts                               imx7d-cl-som-imx7.dts                          r8a7794-alt.dts                              vf610m4-colibri.dts
+dra72-evm-tps65917.dtsi                          imx7d-colibri-eval-v3.dts                      r8a7794-silk.dts                             vf610m4-cosmic.dts
+dra72-evm.dts                                    imx7d-colibri.dtsi                             r8a7794.dtsi                                 vf610m4.dtsi
+dra72x-mmc-iodelay.dtsi                          imx7d-nitrogen7.dts                            r8a77xx-aa104xd12-panel.dtsi                 vfxxx.dtsi
+dra72x.dtsi                                      imx7d-pico.dts                                 r8a77xx-aa121td01-panel.dtsi                 vt8500-bv07.dts
+dra74x-mmc-iodelay.dtsi                          imx7d-pinfunc.h                                rk3036-evb.dts                               vt8500.dtsi
+dra74x.dtsi                                      imx7d-sbc-imx7.dts                             rk3036-kylin.dts                             wd-mbwe.dts
+dra76-evm.dts                                    imx7d-sdb-sht11.dts                            rk3036.dtsi                                  wm8505-ref.dts
+dra76x.dtsi                                      imx7d-sdb.dts                                  rk3066a-bqcurie2.dts                         wm8505.dtsi
+dra7xx-clocks.dtsi                               imx7d.dtsi                                     rk3066a-marsboard.dts                        wm8650-mid.dts
+ecx-2000.dts                                     imx7s-colibri-eval-v3.dts                      rk3066a-mk808.dts                            wm8650.dtsi
+ecx-common.dtsi                                  imx7s-colibri.dtsi                             rk3066a-rayeager.dts                         wm8750-apc8750.dts
+efm32gg-dk3750.dts                               imx7s-warp.dts                                 rk3066a.dtsi                                 wm8750.dtsi
+efm32gg.dtsi                                     imx7s.dtsi                                     rk3188-px3-evb.dts                           wm8850-w70v2.dts
+elpida_ecb240abacn.dtsi                          imx7ulp-pinfunc.h                              rk3188-radxarock.dts                         wm8850.dtsi
+emev2-kzm9d.dts                                  integrator.dtsi                                rk3188.dtsi                                  xenvm-4.2.dts
+emev2.dtsi                                       integratorap.dts                               rk3228-evb.dts                               zx296702-ad1.dts
+ep7209.dtsi                                      integratorcp.dts                               rk3229-evb.dts                               zx296702.dtsi
+ep7211-edb7211.dts                               keystone-clocks.dtsi                           rk3229.dtsi                                  zynq-7000.dtsi
+ep7211.dtsi                                      keystone-k2e-clocks.dtsi                       rk322x.dtsi                                  zynq-microzed.dts
+ethernut5.dts                                    keystone-k2e-evm.dts                           rk3288-evb-act8846.dts                       zynq-parallella.dts
+evk-pro3.dts                                     keystone-k2e-netcp.dtsi                        rk3288-evb-rk808.dts                         zynq-zc702.dts
+exynos-mfc-reserved-memory.dtsi                  keystone-k2e.dtsi                              rk3288-evb.dtsi                              zynq-zc706.dts
+exynos-syscon-restart.dtsi                       keystone-k2g-evm.dts                           rk3288-fennec.dts                            zynq-zed.dts
+exynos3250-artik5-eval.dts                       keystone-k2g-ice.dts                           rk3288-firefly-beta.dts                      zynq-zybo.dts
+exynos3250-artik5.dtsi                           keystone-k2g.dtsi                              rk3288-firefly-reload-core.dtsi
+exynos3250-monk.dts                              keystone-k2hk-clocks.dtsi                      rk3288-firefly-reload.dts
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/git/arch/arm/boot/dts$ vi am335x-pcm953.dtsi
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/git/arch/arm/boot/dts$ vi am335x-pcm-953.dtsi    
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/git/arch/arm/boot/dts$ cd ../../../../..
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0$ cd         
+mohan@mohan:~$ cd wega_yocto/
+mohan@mohan:~/wega_yocto$ source sources/poky/oe-init-build-env 
+
+██████╗ ██╗  ██╗██╗   ██╗████████╗███████╗ ██████╗
+██╔══██╗██║  ██║╚██╗ ██╔╝╚══██╔══╝██╔════╝██╔════╝
+██████╔╝███████║ ╚████╔╝    ██║   █████╗  ██║     
+██╔═══╝ ██╔══██║  ╚██╔╝     ██║   ██╔══╝  ██║     
+██║     ██║  ██║   ██║      ██║   ███████╗╚██████╗
+╚═╝     ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝
+
+
+Welcome to the PHYTEC BSP-Yocto buildsystem.
+
+Before building for the first time, you should take a look in the main
+configuration file 'conf/local.conf'. There you can tweak the build system
+settings and license configuration. For example you may have to accept the
+Freescale/NXP GPU and VPU licence for an i.MX6 board.
+
+Tested build target for this build configuration is:
+
+   $ bitbake phytec-headless-image
+   $ bitbake phytec-qt5demo-image
+
+mohan@mohan:~/wega_yocto/build$ bitbake -c compile linux-mainline -f
+WARNING: Host distribution "ubuntu-20.04" has not been validated with this version of the build system; you may possibly experience unexpected failures. It is recommended that you use a tested distribution.
+Loading cache: 100% |#######################################################################################################################################################################| Time: 0:00:00
+Loaded 3184 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.38.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-20.04"
+TARGET_SYS           = "arm-phytec-linux-gnueabi"
+MACHINE              = "phyboard-wega-am335x-1"
+DISTRO               = "yogurt"
+DISTRO_VERSION       = "BSP-Yocto-AM335x-PD19.1.1"
+TUNE_FEATURES        = "arm armv7a vfp thumb neon callconvention-hard cortexa8"
+TARGET_FPU           = "hard"
+meta                 
+meta-poky            = "HEAD:5ddf7fff992b065ee512878d2fe65f3e35d818cf"
+meta-oe              
+meta-networking      
+meta-python          
+meta-multimedia      = "HEAD:8760facba1bceb299b3613b8955621ddaa3d4c3f"
+meta-gstreamer1.0    = "HEAD:59dfad71768cf53f7863cbe53432cbb77a25a6ee"
+meta-phytec          = "HEAD:c8814fbd94268b3029601d0100a57a39b0f176a8"
+meta-qt5             = "HEAD:d4e7f73d04e8448d326b6f89908701e304e37d65"
+meta-rauc            = "HEAD:09cc4d298e84257cc5fc30ea8721090cdae4a315"
+meta-yogurt          = "HEAD:1e29c99158816b8dc30d5de1486a5c1ea5849e2f"
+
+WARNING: Your host glibc verson (2.31) is newer than that in uninative (2.29). Disabling uninative so that sstate is not corrupted.
+NOTE: Tainting hash to force rebuild of task /home/mohan/wega_yocto/sources/poky/../meta-phytec/recipes-kernel/linux/linux-mainline_4.14.78-phy6.bb, do_compile                             | ETA:  0:00:00
+WARNING: /home/mohan/wega_yocto/sources/poky/../meta-phytec/recipes-kernel/linux/linux-mainline_4.14.78-phy6.bb.do_compile is tainted from a forced run                                     | ETA:  0:00:00
+Initialising tasks: 100% |##################################################################################################################################################################| Time: 0:00:01
+NOTE: Executing SetScene Tasks
+NOTE: Executing RunQueue Tasks
+NOTE: Tasks Summary: Attempted 341 tasks of which 340 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+
+Summary: There were 3 WARNING messages shown.
+mohan@mohan:~/wega_yocto/build$ git
+git                 git-make-shallow    git-receive-pack    git-shell           git-upload-archive  git-upload-pack     gitkraken           
+mohan@mohan:~/wega_yocto/build$ ls 
+bitbake-cookerdaemon.log  buildhistory  cache  conf  downloads  sstate-cache  tmp
+mohan@mohan:~/wega_yocto/build$ cd tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot$ ls
+Image  compressed  dts  zImage
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot$ cp zImage /media/mohan/BOOT/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot$ cd dts/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/dts$ cp am335x-wega-rdk.dtb /media/mohan/BOOT/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/dts$ sync
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/dts$ ls
+am335x-wega-rdk.dtb
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/dts$ cd ..
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot$ ls
+Image  compressed  dts  zImage
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot$ cd dts/
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/dts$ ls
+am335x-wega-rdk.dtb
+mohan@mohan:~/wega_yocto/build/tmp/work/phyboard_wega_am335x_1-phytec-linux-gnueabi/linux-mainline/4.14.78-phy6-r0.0/build/arch/arm/boot/dts$ 
+
+
